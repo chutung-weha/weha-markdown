@@ -44,7 +44,7 @@ export default {
 }
 
 .icon-provider--stackedit {
-  background-image: url(../assets/iconStackedit.svg);
+  background-image: url(../assets/iconWeha.webp);
 }
 
 .icon-provider--google-drive {

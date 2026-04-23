@@ -36,7 +36,7 @@ export default {
 
     // Check the returned sub consistency
     if (sub && uniqueSub !== sub) {
-      throw new Error('Zendesk account ID not expected.');
+      throw new Error('ID tài khoản Zendesk không đúng như mong đợi.');
     }
 
     // Build token object including scopes and sub

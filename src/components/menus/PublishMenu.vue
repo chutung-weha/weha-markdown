@@ -1,113 +1,113 @@
 <template>
   <div class="side-bar__panel side-bar__panel--menu">
     <div class="side-bar__info" v-if="isCurrentTemp">
-      <p>{{currentFileName}} can't be published as it's a temporary file.</p>
+      <p>{{currentFileName}} không thể xuất bản vì đây là file tạm.</p>
     </div>
     <div v-else>
       <div class="side-bar__info" v-if="publishLocations.length">
-        <p>{{currentFileName}} is already published.</p>
+        <p>{{currentFileName}} đã được xuất bản.</p>
         <menu-entry @click.native="requestPublish">
           <icon-upload slot="icon"></icon-upload>
-          <div>Publish now</div>
-          <span>Update publications for {{currentFileName}}.</span>
+          <div>Xuất bản ngay</div>
+          <span>Cập nhật các bản xuất bản cho {{currentFileName}}.</span>
         </menu-entry>
         <menu-entry @click.native="managePublish">
           <icon-view-list slot="icon"></icon-view-list>
-          <div><div class="menu-entry__label menu-entry__label--count">{{locationCount}}</div> File publication</div>
-          <span>Manage publication locations for {{currentFileName}}.</span>
+          <div><div class="menu-entry__label menu-entry__label--count">{{locationCount}}</div> Xuất bản file</div>
+          <span>Quản lý các vị trí xuất bản cho {{currentFileName}}.</span>
         </menu-entry>
       </div>
       <div class="side-bar__info" v-else-if="noToken">
-        <p>You have to link an account to start publishing files.</p>
+        <p>Bạn cần liên kết một tài khoản để bắt đầu xuất bản file.</p>
       </div>
       <hr>
       <div v-for="token in bloggerTokens" :key="'blogger-' + token.sub">
         <menu-entry @click.native="publishBlogger(token)">
           <icon-provider slot="icon" provider-id="blogger"></icon-provider>
-          <div>Publish to Blogger</div>
+          <div>Xuất bản lên Blogger</div>
           <span>{{token.name}}</span>
         </menu-entry>
         <menu-entry @click.native="publishBloggerPage(token)">
           <icon-provider slot="icon" provider-id="bloggerPage"></icon-provider>
-          <div>Publish to Blogger Page</div>
+          <div>Xuất bản lên Blogger Page</div>
           <span>{{token.name}}</span>
         </menu-entry>
       </div>
       <div v-for="token in dropboxTokens" :key="token.sub">
         <menu-entry @click.native="publishDropbox(token)">
           <icon-provider slot="icon" provider-id="dropbox"></icon-provider>
-          <div>Publish to Dropbox</div>
+          <div>Xuất bản lên Dropbox</div>
           <span>{{token.name}}</span>
         </menu-entry>
       </div>
       <div v-for="token in githubTokens" :key="token.sub">
         <menu-entry @click.native="publishGist(token)">
           <icon-provider slot="icon" provider-id="gist"></icon-provider>
-          <div>Publish to Gist</div>
+          <div>Xuất bản lên Gist</div>
           <span>{{token.name}}</span>
         </menu-entry>
         <menu-entry @click.native="publishGithub(token)">
           <icon-provider slot="icon" provider-id="github"></icon-provider>
-          <div>Publish to GitHub</div>
+          <div>Xuất bản lên GitHub</div>
           <span>{{token.name}}</span>
         </menu-entry>
       </div>
       <div v-for="token in gitlabTokens" :key="token.sub">
         <menu-entry @click.native="publishGitlab(token)">
           <icon-provider slot="icon" provider-id="gitlab"></icon-provider>
-          <div>Publish to GitLab</div>
+          <div>Xuất bản lên GitLab</div>
           <span>{{token.name}}</span>
         </menu-entry>
       </div>
       <div v-for="token in googleDriveTokens" :key="token.sub">
         <menu-entry @click.native="publishGoogleDrive(token)">
           <icon-provider slot="icon" provider-id="googleDrive"></icon-provider>
-          <div>Publish to Google Drive</div>
+          <div>Xuất bản lên Google Drive</div>
           <span>{{token.name}}</span>
         </menu-entry>
       </div>
       <div v-for="token in wordpressTokens" :key="token.sub">
         <menu-entry @click.native="publishWordpress(token)">
           <icon-provider slot="icon" provider-id="wordpress"></icon-provider>
-          <div>Publish to WordPress</div>
+          <div>Xuất bản lên WordPress</div>
           <span>{{token.name}}</span>
         </menu-entry>
       </div>
       <div v-for="token in zendeskTokens" :key="token.sub">
         <menu-entry @click.native="publishZendesk(token)">
           <icon-provider slot="icon" provider-id="zendesk"></icon-provider>
-          <div>Publish to Zendesk Help Center</div>
+          <div>Xuất bản lên Zendesk Help Center</div>
           <span>{{token.name}} — {{token.subdomain}}</span>
         </menu-entry>
       </div>
       <hr>
       <menu-entry @click.native="addBloggerAccount">
         <icon-provider slot="icon" provider-id="blogger"></icon-provider>
-        <span>Add Blogger account</span>
+        <span>Thêm tài khoản Blogger</span>
       </menu-entry>
       <menu-entry @click.native="addDropboxAccount">
         <icon-provider slot="icon" provider-id="dropbox"></icon-provider>
-        <span>Add Dropbox account</span>
+        <span>Thêm tài khoản Dropbox</span>
       </menu-entry>
       <menu-entry @click.native="addGithubAccount">
         <icon-provider slot="icon" provider-id="github"></icon-provider>
-        <span>Add GitHub account</span>
+        <span>Thêm tài khoản GitHub</span>
       </menu-entry>
       <menu-entry @click.native="addGitlabAccount">
         <icon-provider slot="icon" provider-id="gitlab"></icon-provider>
-        <span>Add GitLab account</span>
+        <span>Thêm tài khoản GitLab</span>
       </menu-entry>
       <menu-entry @click.native="addGoogleDriveAccount">
         <icon-provider slot="icon" provider-id="googleDrive"></icon-provider>
-        <span>Add Google Drive account</span>
+        <span>Thêm tài khoản Google Drive</span>
       </menu-entry>
       <menu-entry @click.native="addWordpressAccount">
         <icon-provider slot="icon" provider-id="wordpress"></icon-provider>
-        <span>Add WordPress account</span>
+        <span>Thêm tài khoản WordPress</span>
       </menu-entry>
       <menu-entry @click.native="addZendeskAccount">
         <icon-provider slot="icon" provider-id="zendesk"></icon-provider>
-        <span>Add Zendesk account</span>
+        <span>Thêm tài khoản Zendesk</span>
       </menu-entry>
     </div>
   </div>

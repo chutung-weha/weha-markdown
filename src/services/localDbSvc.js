@@ -24,7 +24,7 @@ class Connection {
     const request = indexedDB.open(this.dbName, dbVersion);
 
     request.onerror = () => {
-      throw new Error("Can't connect to IndexedDB.");
+      throw new Error('Không thể kết nối tới IndexedDB.');
     };
 
     request.onsuccess = (event) => {
@@ -148,7 +148,7 @@ const localDbSvc = {
           // Done
           resolve();
         });
-      }, () => reject(new Error('Local DB access error.')));
+      }, () => reject(new Error('Lỗi truy cập cơ sở dữ liệu cục bộ.')));
     });
   },
 
@@ -285,7 +285,7 @@ const localDbSvc = {
     }
     return new Promise((resolve, reject) => {
       // Get the item from DB
-      const onError = () => reject(new Error('Data not available.'));
+      const onError = () => reject(new Error('Dữ liệu không khả dụng.'));
       this.connection.createTx((tx) => {
         const dbStore = tx.objectStore(dbStoreName);
         const request = dbStore.get(id);

@@ -1,54 +1,54 @@
 <template>
-  <modal-inner aria-label="Publish to Google Drive">
+  <modal-inner aria-label="Xuất bản lên Google Drive">
     <div class="modal__content">
       <div class="modal__image">
         <icon-provider provider-id="googleDrive"></icon-provider>
       </div>
-      <p>Publish <b>{{currentFileName}}</b> to your <b>Google Drive</b> account.</p>
-      <form-entry label="Folder ID" info="optional">
+      <p>Xuất bản <b>{{currentFileName}}</b> lên tài khoản <b>Google Drive</b> của bạn.</p>
+      <form-entry label="ID thư mục" info="tuỳ chọn">
         <input slot="field" class="textfield" type="text" v-model.trim="folderId" @keydown.enter="resolve()">
         <div class="form-entry__info">
-          If not supplied, the file will be created in your Drive root folder.
+          Nếu không điền, file sẽ được tạo trong thư mục gốc Drive của bạn.
         </div>
         <div class="form-entry__actions">
-          <a href="javascript:void(0)" @click="openFolder">Choose folder</a>
+          <a href="javascript:void(0)" @click="openFolder">Chọn thư mục</a>
         </div>
       </form-entry>
-      <form-entry label="Existing file ID" info="optional">
+      <form-entry label="ID file hiện có" info="tuỳ chọn">
         <input slot="field" class="textfield" type="text" v-model.trim="fileId" @keydown.enter="resolve()">
         <div class="form-entry__info">
-          This will overwrite the file on the server.
+          Thao tác này sẽ ghi đè file trên máy chủ.
         </div>
       </form-entry>
       <div class="form-entry">
         <div class="form-entry__radio">
           <label>
-            <input type="radio" v-model="format" value="markdown"> Export Markdown
+            <input type="radio" v-model="format" value="markdown"> Xuất Markdown
           </label>
         </div>
         <div class="form-entry__radio">
           <label>
-            <input type="radio" v-model="format" value="html"> Export HTML
+            <input type="radio" v-model="format" value="html"> Xuất HTML
           </label>
         </div>
       </div>
-      <form-entry label="Template" v-if="format === 'html'">
+      <form-entry label="Mẫu" v-if="format === 'html'">
         <select slot="field" class="textfield" v-model="selectedTemplate" @keydown.enter="resolve()">
           <option v-for="(template, id) in allTemplatesById" :key="id" :value="id">
             {{ template.name }}
           </option>
         </select>
         <div class="form-entry__actions">
-          <a href="javascript:void(0)" @click="configureTemplates">Configure templates</a>
+          <a href="javascript:void(0)" @click="configureTemplates">Cấu hình mẫu</a>
         </div>
       </form-entry>
       <div class="modal__info">
-        <b>ProTip:</b> You can provide a value for <code>title</code> in the <a href="javascript:void(0)" @click="openFileProperties">file properties</a>.
+        <b>Mẹo:</b> Bạn có thể cung cấp giá trị cho <code>title</code> trong <a href="javascript:void(0)" @click="openFileProperties">thuộc tính file</a>.
       </div>
     </div>
     <div class="modal__button-bar">
-      <button class="button" @click="config.reject()">Cancel</button>
-      <button class="button button--resolve" @click="resolve()">Ok</button>
+      <button class="button" @click="config.reject()">Huỷ</button>
+      <button class="button button--resolve" @click="resolve()">Đồng ý</button>
     </div>
   </modal-inner>
 </template>

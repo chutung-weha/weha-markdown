@@ -90,7 +90,7 @@ export default new Provider({
       try {
         content = await this.downloadContent(token, updatedSyncLocation);
       } catch (e) {
-        store.dispatch('notification/error', `Could not open file ${updatedSyncLocation.path}.`);
+        store.dispatch('notification/error', `Không thể mở file ${updatedSyncLocation.path}.`);
         return;
       }
 
@@ -117,7 +117,7 @@ export default new Provider({
         ...updatedSyncLocation,
         fileId: item.id,
       });
-      store.dispatch('notification/info', `${store.getters['file/current'].name} was imported from GitLab.`);
+      store.dispatch('notification/info', `${store.getters['file/current'].name} đã được nhập từ GitLab.`);
     }
   },
   makeLocation(token, projectPath, branch, path) {

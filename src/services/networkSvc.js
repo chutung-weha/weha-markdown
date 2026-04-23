@@ -89,9 +89,9 @@ export default {
       if (store.state.offline !== offline) {
         store.commit('setOffline', offline);
         if (offline) {
-          store.dispatch('notification/error', 'You are offline.');
+          store.dispatch('notification/error', 'Bạn đang ngoại tuyến.');
         } else {
-          store.dispatch('notification/info', 'You are back online!');
+          store.dispatch('notification/info', 'Bạn đã kết nối lại!');
           this.getServerConf();
         }
       }
@@ -165,7 +165,7 @@ export default {
         // Open a tab otherwise
         wnd = window.open(authorizeUrl);
         if (!wnd) {
-          throw new Error('The authorize window was blocked.');
+          throw new Error('Cửa sổ xác thực đã bị chặn.');
         }
       }
 
@@ -176,7 +176,7 @@ export default {
         return await new Promise((resolve, reject) => {
           if (silent) {
             iframeElt.onerror = () => {
-              reject(new Error('Unknown error.'));
+              reject(new Error('Lỗi không xác định.'));
             };
             closeTimeout = setTimeout(() => {
               if (!reattempt) {
@@ -185,12 +185,12 @@ export default {
                 isConnectionDown = true;
                 store.commit('setOffline', true);
                 store.commit('updateLastOfflineCheck');
-                reject(new Error('You are offline.'));
+                reject(new Error('Bạn đang ngoại tuyến.'));
               }
             }, silentAuthorizeTimeout);
           } else {
             closeTimeout = setTimeout(() => {
-              reject(new Error('Timeout.'));
+              reject(new Error('Hết thời gian chờ.'));
             }, authorizeTimeout);
           }
 
@@ -199,7 +199,7 @@ export default {
               const data = utils.parseQueryParams(`${event.data}`.slice(1));
               if (data.error || data.state !== state) {
                 console.error(data); // eslint-disable-line no-console
-                reject(new Error('Could not get required authorization.'));
+                reject(new Error('Không thể lấy quyền cần thiết.'));
               } else {
                 resolve({
                   accessToken: data.access_token,
@@ -215,7 +215,7 @@ export default {
           if (!silent) {
             checkClosedInterval = setInterval(() => {
               if (wnd.closed) {
-                reject(new Error('Authorize window was closed.'));
+                reject(new Error('Cửa sổ xác thực đã bị đóng.'));
               }
             }, 250);
           }
@@ -264,9 +264,9 @@ export default {
             if (offlineCheck) {
               isConnectionDown = true;
               store.commit('setOffline', true);
-              reject(new Error('You are offline.'));
+              reject(new Error('Bạn đang ngoại tuyến.'));
             } else {
-              reject(new Error('Network request timeout.'));
+              reject(new Error('Yêu cầu mạng hết thời gian chờ.'));
             }
           }, sanitizedConfig.timeout);
 
@@ -299,9 +299,9 @@ export default {
             if (offlineCheck) {
               isConnectionDown = true;
               store.commit('setOffline', true);
-              reject(new Error('You are offline.'));
+              reject(new Error('Bạn đang ngoại tuyến.'));
             } else {
-              reject(new Error('Network request failed.'));
+              reject(new Error('Yêu cầu mạng thất bại.'));
             }
           };
 

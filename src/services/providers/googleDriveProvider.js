@@ -156,7 +156,7 @@ export default new Provider({
         try {
           content = await this.downloadContent(token, syncLocation);
         } catch (e) {
-          store.dispatch('notification/error', `Could not open file ${driveFile.id}.`);
+          store.dispatch('notification/error', `Không thể mở file ${driveFile.id}.`);
           return;
         }
 
@@ -174,7 +174,7 @@ export default new Provider({
           ...syncLocation,
           fileId: item.id,
         });
-        store.dispatch('notification/info', `${store.getters['file/current'].name} was imported from Google Drive.`);
+        store.dispatch('notification/info', `${store.getters['file/current'].name} đã được nhập từ Google Drive.`);
       }
     });
   },

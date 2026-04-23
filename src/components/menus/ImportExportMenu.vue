@@ -6,8 +6,8 @@
         <icon-upload></icon-upload>
       </div>
       <div class="flex flex--column">
-        <div>Import Markdown</div>
-        <span>Import a plain text file.</span>
+        <div>Nhập Markdown</div>
+        <span>Nhập một file văn bản thuần.</span>
       </div>
     </label>
     <input class="hidden-file" id="import-html-file-input" type="file" @change="onImportHtml">
@@ -16,30 +16,30 @@
         <icon-upload></icon-upload>
       </div>
       <div class="flex flex--column">
-        <div>Import HTML</div>
-        <span>Convert an HTML file to Markdown.</span>
+        <div>Nhập HTML</div>
+        <span>Chuyển một file HTML sang Markdown.</span>
       </div>
     </label>
     <hr>
     <menu-entry @click.native="exportMarkdown">
       <icon-download slot="icon"></icon-download>
-      <div>Export as Markdown</div>
-      <span>Save plain text file.</span>
+      <div>Xuất dạng Markdown</div>
+      <span>Lưu file văn bản thuần.</span>
     </menu-entry>
     <menu-entry @click.native="exportHtml">
       <icon-download slot="icon"></icon-download>
-      <div>Export as HTML</div>
-      <span>Generate an HTML page from a template.</span>
+      <div>Xuất dạng HTML</div>
+      <span>Tạo trang HTML từ một template.</span>
     </menu-entry>
     <menu-entry @click.native="exportPdf">
       <icon-download slot="icon"></icon-download>
-      <div><div class="menu-entry__label" :class="{'menu-entry__label--warning': !isSponsor}">sponsor</div> Export as PDF</div>
-      <span>Produce a PDF from an HTML template.</span>
+      <div><div class="menu-entry__label" :class="{'menu-entry__label--warning': !isSponsor}">sponsor</div> Xuất dạng PDF</div>
+      <span>Tạo PDF từ một template HTML.</span>
     </menu-entry>
     <menu-entry @click.native="exportPandoc">
       <icon-download slot="icon"></icon-download>
-      <div><div class="menu-entry__label" :class="{'menu-entry__label--warning': !isSponsor}">sponsor</div> Export with Pandoc</div>
-      <span>Convert to PDF, Word, EPUB...</span>
+      <div><div class="menu-entry__label" :class="{'menu-entry__label--warning': !isSponsor}">sponsor</div> Xuất bằng Pandoc</div>
+      <span>Chuyển sang PDF, Word, EPUB...</span>
     </menu-entry>
   </div>
 </template>
@@ -63,7 +63,7 @@ const readFile = file => new Promise((resolve) => {
     reader.onload = (e) => {
       const content = e.target.result;
       if (content.match(/\uFFFD/)) {
-        store.dispatch('notification/error', 'File is not readable.');
+        store.dispatch('notification/error', 'Không đọc được file.');
       } else {
         resolve(content);
       }

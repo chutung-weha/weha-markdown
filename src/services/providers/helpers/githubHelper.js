@@ -101,7 +101,7 @@ export default {
 
     // Check the returned sub consistency
     if (sub && `${user.id}` !== sub) {
-      throw new Error('GitHub account ID not expected.');
+      throw new Error('ID tài khoản GitHub không đúng như mong đợi.');
     }
 
     // Build token object including scopes and sub
@@ -140,7 +140,7 @@ export default {
       url: `git/trees/${encodeURIComponent(commit.tree.sha)}?recursive=1`,
     });
     if (truncated) {
-      throw new Error('Git tree too big. Please remove some files in the repository.');
+      throw new Error('Cây Git quá lớn. Vui lòng xoá bớt file trong repository.');
     }
     return tree;
   },
@@ -279,7 +279,7 @@ export default {
       url: `https://api.github.com/gists/${gistId}`,
     })).body.files[filename];
     if (!result) {
-      throw new Error('Gist file not found.');
+      throw new Error('Không tìm thấy file Gist.');
     }
     return result.content;
   },
@@ -310,7 +310,7 @@ export default {
       url: `https://api.github.com/gists/${gistId}/${sha}`,
     })).body.files[filename];
     if (!result) {
-      throw new Error('Gist file not found.');
+      throw new Error('Không tìm thấy file Gist.');
     }
     return result.content;
   },

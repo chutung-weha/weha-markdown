@@ -1,21 +1,21 @@
 <template>
-  <modal-inner class="modal__inner-1--settings" aria-label="Settings">
+  <modal-inner class="modal__inner-1--settings" aria-label="Thiết lập">
     <div class="modal__content">
       <div class="tabs flex flex--row">
         <tab :active="tab === 'custom'" @click="tab = 'custom'">
-          Custom settings
+          Thiết lập tuỳ chỉnh
         </tab>
         <tab :active="tab === 'default'" @click="tab = 'default'">
-          Default settings
+          Thiết lập mặc định
         </tab>
       </div>
-      <div class="form-entry" v-if="tab === 'custom'" role="tabpanel" aria-label="Custom settings">
+      <div class="form-entry" v-if="tab === 'custom'" role="tabpanel" aria-label="Thiết lập tuỳ chỉnh">
         <label class="form-entry__label">YAML</label>
         <div class="form-entry__field form-entry__field--code-editor">
           <code-editor lang="yaml" :value="customSettings" key="custom-settings" @changed="setCustomSettings"></code-editor>
         </div>
       </div>
-      <div class="form-entry" v-else-if="tab === 'default'" role="tabpanel" aria-label="Default settings">
+      <div class="form-entry" v-else-if="tab === 'default'" role="tabpanel" aria-label="Thiết lập mặc định">
         <label class="form-entry__label">YAML</label>
         <div class="form-entry__field form-entry__field--code-editor">
           <code-editor lang="yaml" :value="defaultSettings" key="default-settings" disabled="true"></code-editor>
@@ -24,8 +24,8 @@
       <div class="modal__error modal__error--settings">{{error}}</div>
     </div>
     <div class="modal__button-bar">
-      <button class="button" @click="config.reject()">Cancel</button>
-      <button class="button button--resolve" @click="resolve">Ok</button>
+      <button class="button" @click="config.reject()">Huỷ</button>
+      <button class="button button--resolve" @click="resolve">Đồng ý</button>
     </div>
   </modal-inner>
 </template>
@@ -40,8 +40,8 @@ import defaultSettings from '../../data/defaults/defaultSettings.yml';
 import store from '../../store';
 import badgeSvc from '../../services/badgeSvc';
 
-const emptySettings = `# Add your custom settings here to override the
-# default settings.
+const emptySettings = `# Thêm các thiết lập tuỳ chỉnh của bạn tại đây để ghi đè
+# các thiết lập mặc định.
 `;
 
 export default {

@@ -3,17 +3,17 @@
     <div class="stat-panel__block stat-panel__block--left" v-if="styles.showEditor">
       <span class="stat-panel__block-name">
         Markdown
-        <span v-if="textSelection">selection</span>
+        <span v-if="textSelection">vùng chọn</span>
       </span>
       <span v-for="stat in textStats" :key="stat.id">
         <span class="stat-panel__value">{{stat.value}}</span> {{stat.name}}
       </span>
-      <span class="stat-panel__value">Ln {{line}}, Col {{column}}</span>
+      <span class="stat-panel__value">Dòng {{line}}, Cột {{column}}</span>
     </div>
     <div class="stat-panel__block stat-panel__block--right">
       <span class="stat-panel__block-name">
         HTML
-        <span v-if="htmlSelection">selection</span>
+        <span v-if="htmlSelection">vùng chọn</span>
       </span>
       <span v-for="stat in htmlStats" :key="stat.id">
         <span class="stat-panel__value">{{stat.value}}</span> {{stat.name}}
@@ -43,14 +43,14 @@ export default {
     line: 0,
     column: 0,
     textStats: [
-      new Stat('bytes', '[\\s\\S]'),
-      new Stat('words', '\\S+'),
-      new Stat('lines', '\n'),
+      new Stat('byte', '[\\s\\S]'),
+      new Stat('từ', '\\S+'),
+      new Stat('dòng', '\n'),
     ],
     htmlStats: [
-      new Stat('characters', '\\S'),
-      new Stat('words', '\\S+'),
-      new Stat('paragraphs', '\\S.*'),
+      new Stat('ký tự', '\\S'),
+      new Stat('từ', '\\S+'),
+      new Stat('đoạn', '\\S.*'),
     ],
   }),
   computed: mapGetters('layout', [

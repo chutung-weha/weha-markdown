@@ -1,31 +1,31 @@
 <template>
-  <modal-inner aria-label="Publish to Dropbox">
+  <modal-inner aria-label="Xuất bản lên Dropbox">
     <div class="modal__content">
       <div class="modal__image">
         <icon-provider provider-id="dropbox"></icon-provider>
       </div>
-      <p>Publish <b>{{currentFileName}}</b> to your <b>Dropbox</b>.</p>
-      <form-entry label="File path" error="path">
+      <p>Xuất bản <b>{{currentFileName}}</b> lên <b>Dropbox</b> của bạn.</p>
+      <form-entry label="Đường dẫn file" error="path">
         <input slot="field" class="textfield" type="text" v-model.trim="path" @keydown.enter="resolve()">
         <div class="form-entry__info">
-          <b>Example:</b> {{config.token.fullAccess ? '' : '/Applications/StackEdit (restricted)'}}/path/to/My Document.html<br>
-          If the file exists, it will be overwritten.
+          <b>Ví dụ:</b> {{config.token.fullAccess ? '' : '/Applications/StackEdit (restricted)'}}/path/to/My Document.html<br>
+          Nếu file đã tồn tại, nó sẽ bị ghi đè.
         </div>
       </form-entry>
-      <form-entry label="Template">
+      <form-entry label="Mẫu">
         <select slot="field" class="textfield" v-model="selectedTemplate" @keydown.enter="resolve()">
           <option v-for="(template, id) in allTemplatesById" :key="id" :value="id">
             {{ template.name }}
           </option>
         </select>
         <div class="form-entry__actions">
-          <a href="javascript:void(0)" @click="configureTemplates">Configure templates</a>
+          <a href="javascript:void(0)" @click="configureTemplates">Cấu hình mẫu</a>
         </div>
       </form-entry>
     </div>
     <div class="modal__button-bar">
-      <button class="button" @click="config.reject()">Cancel</button>
-      <button class="button button--resolve" @click="resolve()">Ok</button>
+      <button class="button" @click="config.reject()">Huỷ</button>
+      <button class="button button--resolve" @click="resolve()">Đồng ý</button>
     </div>
   </modal-inner>
 </template>

@@ -1,17 +1,17 @@
 <template>
-  <modal-inner class="modal__inner-1--file-properties" aria-label="File properties">
+  <modal-inner class="modal__inner-1--file-properties" aria-label="Thuộc tính file">
     <div class="modal__content">
       <div class="tabs flex flex--row">
         <tab :active="tab === 'simple'" @click="setSimpleTab()">
-          Simple properties
+          Thuộc tính cơ bản
         </tab>
         <tab :active="tab === 'yaml'" @click="setYamlTab()">
-          YAML properties
+          Thuộc tính YAML
         </tab>
       </div>
       <div v-if="tab === 'simple'">
         <div class="modal__title">Extensions</div>
-        <div class="modal__sub-title">Configure the Markdown engine.</div>
+        <div class="modal__sub-title">Cấu hình engine Markdown.</div>
         <form-entry label="Preset">
           <select slot="field" class="textfield" v-model="preset" @keydown.enter="resolve()">
             <option v-for="(preset, id) in presets" :key="id" :value="preset">
@@ -20,37 +20,37 @@
           </select>
         </form-entry>
         <div class="modal__title">Metadata</div>
-        <div class="modal__sub-title">Add info to your publications (Wordpress, Blogger...).</div>
-        <form-entry label="Title">
+        <div class="modal__sub-title">Thêm thông tin cho các bài xuất bản của bạn (Wordpress, Blogger...).</div>
+        <form-entry label="Tiêu đề">
           <input slot="field" class="textfield" type="text" v-model.trim="title" @keydown.enter="resolve()">
         </form-entry>
-        <form-entry label="Author">
+        <form-entry label="Tác giả">
           <input slot="field" class="textfield" type="text" v-model.trim="author" @keydown.enter="resolve()">
         </form-entry>
-        <form-entry label="Tags" info="comma-separated">
+        <form-entry label="Thẻ" info="phân cách bởi dấu phẩy">
           <input slot="field" class="textfield" type="text" v-model.trim="tags" @keydown.enter="resolve()">
         </form-entry>
-        <form-entry label="Categories" info="comma-separated">
+        <form-entry label="Danh mục" info="phân cách bởi dấu phẩy">
           <input slot="field" class="textfield" type="text" v-model.trim="categories" @keydown.enter="resolve()">
         </form-entry>
-        <form-entry label="Excerpt">
+        <form-entry label="Tóm tắt">
           <input slot="field" class="textfield" type="text" v-model.trim="excerpt" @keydown.enter="resolve()">
         </form-entry>
-        <form-entry label="Featured image">
+        <form-entry label="Ảnh đại diện">
           <input slot="field" class="textfield" type="text" v-model.trim="featuredImage" @keydown.enter="resolve()">
         </form-entry>
-        <form-entry label="Status">
+        <form-entry label="Trạng thái">
           <input slot="field" class="textfield" type="text" v-model.trim="status" @keydown.enter="resolve()">
           <div class="form-entry__info">
-            <b>Example:</b> draft
+            <b>Ví dụ:</b> draft
           </div>
         </form-entry>
-        <form-entry label="Date" info="YYYY-MM-DD">
+        <form-entry label="Ngày" info="YYYY-MM-DD">
           <input slot="field" class="textfield" type="text" v-model.trim="date" @keydown.enter="resolve()">
         </form-entry>
       </div>
       <div v-if="tab === 'yaml'">
-        <div class="form-entry" role="tabpanel" aria-label="YAML properties">
+        <div class="form-entry" role="tabpanel" aria-label="Thuộc tính YAML">
           <label class="form-entry__label">YAML</label>
           <div class="form-entry__field">
             <code-editor lang="yaml" :value="yamlProperties" key="custom-properties" @changed="setYamlProperties"></code-editor>
@@ -58,13 +58,13 @@
         </div>
         <div class="modal__error modal__error--file-properties">{{error}}</div>
         <div class="modal__info modal__info--multiline">
-          <p><strong>ProTip:</strong> You can manually toggle extensions:</p>
+          <p><strong>Mẹo:</strong> Bạn có thể bật/tắt extensions thủ công:</p>
           <pre class=" language-yaml"><code class="prism  language-yaml"><span class="token key atrule">extensions</span><span class="token punctuation">:</span>
   <span class="token key atrule">emoji</span><span class="token punctuation">:</span>
     <span class="token comment"># Enable emoji shortcuts like :) :-(</span>
     <span class="token key atrule">shortcuts</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
 </code></pre>
-          <p>Use preset <code>zero</code> to make your own configuration:</p>
+          <p>Dùng preset <code>zero</code> để tự cấu hình theo ý bạn:</p>
           <pre class=" language-yaml"><code class="prism  language-yaml"><span class="token key atrule">extensions</span><span class="token punctuation">:</span>
   <span class="token key atrule">preset</span><span class="token punctuation">:</span> zero
   <span class="token key atrule">markdown</span><span class="token punctuation">:</span>
@@ -72,13 +72,13 @@
   <span class="token key atrule">katex</span><span class="token punctuation">:</span>
     <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
 </code></pre>
-          <p>For the full list of options, see <a href="https://github.com/benweet/stackedit/blob/master/src/data/presets.js" target="_blank">here</a>.</p>
+          <p>Xem danh sách đầy đủ các tuỳ chọn <a href="https://github.com/benweet/stackedit/blob/master/src/data/presets.js" target="_blank">tại đây</a>.</p>
         </div>
       </div>
     </div>
     <div class="modal__button-bar">
-      <button class="button" @click="config.reject()">Cancel</button>
-      <button class="button button--resolve" @click="resolve()">Ok</button>
+      <button class="button" @click="config.reject()">Huỷ</button>
+      <button class="button button--resolve" @click="resolve()">Đồng ý</button>
     </div>
   </modal-inner>
 </template>

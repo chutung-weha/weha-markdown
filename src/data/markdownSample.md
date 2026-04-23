@@ -1,128 +1,128 @@
-Headers
+Tiêu đề
 ---------------------------
 
-# Header 1
+# Tiêu đề 1
 
-## Header 2
+## Tiêu đề 2
 
-### Header 3
+### Tiêu đề 3
 
 
 
-Styling
+Định dạng
 ---------------------------
 
-*Emphasize* _emphasize_
+*Nhấn mạnh* _nhấn mạnh_
 
-**Strong** __strong__
+**In đậm** __in đậm__
 
-==Marked text.==
+==Văn bản tô màu.==
 
-~~Mistaken text.~~
+~~Văn bản gạch ngang.~~
 
-> Quoted text.
+> Văn bản trích dẫn.
 
-H~2~O is a liquid.
+H~2~O là chất lỏng.
 
-2^10^ is 1024.
+2^10^ bằng 1024.
 
 
 
-Lists
+Danh sách
 ---------------------------
 
-- Item
-  * Item
-    + Item
+- Mục
+  * Mục
+    + Mục
 
-1. Item 1
-2. Item 2
-3. Item 3
+1. Mục 1
+2. Mục 2
+3. Mục 3
 
-- [ ] Incomplete item
-- [x] Complete item
+- [ ] Mục chưa hoàn thành
+- [x] Mục đã hoàn thành
 
 
 
-Links
+Liên kết
 ---------------------------
 
-A [link](http://example.com).
+Một [liên kết](http://example.com).
 
-An image: ![Alt](img.jpg)
+Một hình: ![Alt](img.jpg)
 
-A sized image: ![Alt](img.jpg =60x50)
+Một hình có kích thước: ![Alt](img.jpg =60x50)
 
 
 
-Code
+Mã
 ---------------------------
 
-Some `inline code`.
+Đoạn `mã nội dòng`.
 
 ```
-// A code block
+// Một khối mã
 var foo = 'bar';
 ```
 
 ```javascript
-// An highlighted block
+// Một khối mã được tô sáng
 var foo = 'bar';
 ```
 
 
 
-Tables
+Bảng
 ---------------------------
 
-Item     | Value
+Mục      | Giá
 -------- | -----
-Computer | $1600
-Phone    | $12
-Pipe     | $1
+Máy tính | 1600$
+Điện thoại | 12$
+Ống nước | 1$
 
 
-| Column 1 | Column 2      |
+| Cột 1    | Cột 2         |
 |:--------:| -------------:|
-| centered | right-aligned |
+| căn giữa | căn phải      |
 
 
 
-Definition lists
+Danh sách định nghĩa
 ---------------------------
 
 Markdown
-:  Text-to-HTML conversion tool
+:  Công cụ chuyển văn bản sang HTML
 
-Authors
+Tác giả
 :  John
 :  Luke
 
 
 
-Footnotes
+Chú thích chân trang
 ---------------------------
 
-Some text with a footnote.[^1]
+Một đoạn văn bản có chú thích.[^1]
 
-[^1]: The footnote.
+[^1]: Đây là chú thích.
 
 
 
-Abbreviations
+Từ viết tắt
 ---------------------------
 
-Markdown converts text to HTML.
+Markdown chuyển văn bản thành HTML.
 
 *[HTML]: HyperText Markup Language
 
 
 
-LaTeX math
+Công thức LaTeX
 ---------------------------
 
-The Gamma function satisfying $\Gamma(n) = (n-1)!\quad\forall
-n\in\mathbb N$ is via the Euler integral
+Hàm Gamma thoả mãn $\Gamma(n) = (n-1)!\quad\forall
+n\in\mathbb N$ thông qua tích phân Euler
 
 $$
 \Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.

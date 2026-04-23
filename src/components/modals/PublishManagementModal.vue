@@ -1,11 +1,11 @@
 <template>
-  <modal-inner class="modal__inner-1--publish-management" aria-label="Manage publication locations">
+  <modal-inner class="modal__inner-1--publish-management" aria-label="Quản lý các vị trí xuất bản">
     <div class="modal__content">
       <div class="modal__image">
         <icon-upload></icon-upload>
       </div>
-      <p v-if="publishLocations.length"><b>{{currentFileName}}</b> is published to the following location(s):</p>
-      <p v-else><b>{{currentFileName}}</b> is not published yet.</p>
+      <p v-if="publishLocations.length"><b>{{currentFileName}}</b> đã được xuất bản tới các vị trí sau:</p>
+      <p v-else><b>{{currentFileName}}</b> chưa được xuất bản.</p>
       <div>
         <div class="publish-entry flex flex--column" v-for="location in publishLocations" :key="location.id">
           <div class="publish-entry__header flex flex--row flex--align-center">
@@ -16,7 +16,7 @@
               {{location.description}}
             </div>
             <div class="publish-entry__buttons flex flex--row flex--center">
-              <button class="publish-entry__button button" @click="remove(location)" v-title="'Remove location'">
+              <button class="publish-entry__button button" @click="remove(location)" v-title="'Gỡ vị trí'">
                 <icon-delete></icon-delete>
               </button>
             </div>
@@ -26,10 +26,10 @@
               {{location.url}}
             </div>
             <div class="publish-entry__buttons flex flex--row flex--center" v-if="location.url">
-              <button class="publish-entry__button button" v-clipboard="location.url" @click="info('Location URL copied to clipboard!')" v-title="'Copy URL'">
+              <button class="publish-entry__button button" v-clipboard="location.url" @click="info('Đã sao chép URL vị trí vào clipboard!')" v-title="'Sao chép URL'">
                 <icon-content-copy></icon-content-copy>
               </button>
-              <a class="publish-entry__button button" v-if="location.url" :href="location.url" target="_blank" v-title="'Open location'">
+              <a class="publish-entry__button button" v-if="location.url" :href="location.url" target="_blank" v-title="'Mở vị trí'">
                 <icon-open-in-new></icon-open-in-new>
               </a>
             </div>
@@ -37,11 +37,11 @@
         </div>
       </div>
       <div class="modal__info" v-if="publishLocations.length">
-        <b>Tip:</b> Removing a location won't delete any file.
+        <b>Mẹo:</b> Gỡ một vị trí sẽ không xoá bất kỳ file nào.
       </div>
     </div>
     <div class="modal__button-bar">
-      <button class="button button--resolve" @click="config.resolve()">Close</button>
+      <button class="button button--resolve" @click="config.resolve()">Đóng</button>
     </div>
   </modal-inner>
 </template>

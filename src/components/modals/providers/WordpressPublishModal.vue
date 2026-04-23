@@ -1,39 +1,39 @@
 <template>
-  <modal-inner aria-label="Publish to WordPress">
+  <modal-inner aria-label="Xuất bản lên WordPress">
     <div class="modal__content">
       <div class="modal__image">
         <icon-provider provider-id="wordpress"></icon-provider>
       </div>
-      <p>Publish <b>{{currentFileName}}</b> to your <b>WordPress</b> site.</p>
-      <form-entry label="Site domain" error="domain">
+      <p>Xuất bản <b>{{currentFileName}}</b> lên trang <b>WordPress</b> của bạn.</p>
+      <form-entry label="Tên miền" error="domain">
         <input slot="field" class="textfield" type="text" v-model.trim="domain" @keydown.enter="resolve()">
         <div class="form-entry__info">
-          <b>Example:</b> example.wordpress.com<br>
-          <b>Note:</b> Jetpack is required for self-hosted sites.
+          <b>Ví dụ:</b> example.wordpress.com<br>
+          <b>Lưu ý:</b> Cần có Jetpack cho các trang tự lưu trữ.
         </div>
       </form-entry>
-      <form-entry label="Existing post ID" info="optional">
+      <form-entry label="ID bài viết hiện có" info="tuỳ chọn">
         <input slot="field" class="textfield" type="text" v-model.trim="postId" @keydown.enter="resolve()">
       </form-entry>
-      <form-entry label="Template">
+      <form-entry label="Mẫu">
         <select slot="field" class="textfield" v-model="selectedTemplate" @keydown.enter="resolve()">
           <option v-for="(template, id) in allTemplatesById" :key="id" :value="id">
             {{ template.name }}
           </option>
         </select>
         <div class="form-entry__actions">
-          <a href="javascript:void(0)" @click="configureTemplates">Configure templates</a>
+          <a href="javascript:void(0)" @click="configureTemplates">Cấu hình mẫu</a>
         </div>
       </form-entry>
       <div class="modal__info">
-        <b>ProTip:</b> You can provide values for <code>title</code>, <code>tags</code>,
+        <b>Mẹo:</b> Bạn có thể cung cấp giá trị cho <code>title</code>, <code>tags</code>,
         <code>categories</code>, <code>excerpt</code>, <code>author</code>, <code>featuredImage</code>,
-        <code>status</code> and <code>date</code> in the <a href="javascript:void(0)" @click="openFileProperties">file properties</a>.
+        <code>status</code> và <code>date</code> trong <a href="javascript:void(0)" @click="openFileProperties">thuộc tính file</a>.
       </div>
     </div>
     <div class="modal__button-bar">
-      <button class="button" @click="config.reject()">Cancel</button>
-      <button class="button button--resolve" @click="resolve()">Ok</button>
+      <button class="button" @click="config.reject()">Huỷ</button>
+      <button class="button button--resolve" @click="resolve()">Đồng ý</button>
     </div>
   </modal-inner>
 </template>

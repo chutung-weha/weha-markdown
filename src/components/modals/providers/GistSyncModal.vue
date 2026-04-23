@@ -1,30 +1,30 @@
 <template>
-  <modal-inner aria-label="Synchronize with Gist">
+  <modal-inner aria-label="Đồng bộ với Gist">
     <div class="modal__content">
       <div class="modal__image">
         <icon-provider provider-id="gist"></icon-provider>
       </div>
-      <p>Save <b>{{currentFileName}}</b> to a <b>Gist</b> and keep it synced.</p>
-      <form-entry label="Filename" error="filename">
+      <p>Lưu <b>{{currentFileName}}</b> vào một <b>Gist</b> và giữ đồng bộ.</p>
+      <form-entry label="Tên file" error="filename">
         <input slot="field" class="textfield" type="text" v-model.trim="filename" @keydown.enter="resolve()">
       </form-entry>
       <div class="form-entry">
         <div class="form-entry__checkbox">
           <label>
-            <input type="checkbox" v-model="isPublic"> Public
+            <input type="checkbox" v-model="isPublic"> Công khai
           </label>
         </div>
       </div>
-      <form-entry label="Existing Gist ID" info="optional">
+      <form-entry label="ID Gist hiện có" info="tuỳ chọn">
         <input slot="field" class="textfield" type="text" v-model.trim="gistId" @keydown.enter="resolve()">
         <div class="form-entry__info">
-          If the file exists in the Gist, it will be overwritten.
+          Nếu file đã tồn tại trong Gist, nó sẽ bị ghi đè.
         </div>
       </form-entry>
     </div>
     <div class="modal__button-bar">
-      <button class="button" @click="config.reject()">Cancel</button>
-      <button class="button button--resolve" @click="resolve()">Ok</button>
+      <button class="button" @click="config.reject()">Huỷ</button>
+      <button class="button button--resolve" @click="resolve()">Đồng ý</button>
     </div>
   </modal-inner>
 </template>

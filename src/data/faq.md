@@ -1,9 +1,9 @@
-**Where is my data stored?**
+**Dữ liệu của tôi được lưu ở đâu?**
 
-If your workspace is not synced, your files are stored inside your browser and nowhere else.
+Nếu workspace chưa được đồng bộ, các file chỉ được lưu trong trình duyệt của bạn và không lưu ở nơi nào khác.
 
-We recommend syncing your workspace to make sure files won't be lost in case your browser data is cleared. Self-hosted CouchDB or GitLab backends are well suited for privacy.
+Chúng tôi khuyến nghị bạn nên đồng bộ workspace để tránh mất dữ liệu khi trình duyệt bị xoá. Nếu cần sự riêng tư cao, bạn có thể dùng CouchDB tự lưu trữ hoặc GitLab.
 
-**Can StackEdit access my data without telling me?**
+**Weha Markdown có thể truy cập dữ liệu của tôi mà không báo không?**
 
-StackEdit is a browser-based application. The access tokens issued by Google, Dropbox, GitHub... are stored in your browser and are not sent to any kind of backend or 3^rd^ party so your data won't be accessed by anyone.
+Weha Markdown là ứng dụng chạy trên trình duyệt. Các access token do Google, Dropbox, GitHub… cấp đều được lưu trong trình duyệt, không gửi về bất kỳ máy chủ hay bên thứ ba nào, nên không ai có thể truy cập dữ liệu của bạn.

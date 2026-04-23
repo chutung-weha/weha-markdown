@@ -1,7 +1,7 @@
 <template>
-  <modal-inner aria-label="Export to PDF">
+  <modal-inner aria-label="Xuất ra PDF">
     <div class="modal__content">
-      <p>Please choose a template for your <b>PDF export</b>.</p>
+      <p>Vui lòng chọn template cho <b>bản xuất PDF</b> của bạn.</p>
       <form-entry label="Template">
         <select class="textfield" slot="field" v-model="selectedTemplate" @keydown.enter="resolve()">
           <option v-for="(template, id) in allTemplatesById" :key="id" :value="id">
@@ -9,13 +9,13 @@
           </option>
         </select>
         <div class="form-entry__actions">
-          <a href="javascript:void(0)" @click="configureTemplates">Configure templates</a>
+          <a href="javascript:void(0)" @click="configureTemplates">Cấu hình template</a>
         </div>
       </form-entry>
     </div>
     <div class="modal__button-bar">
-      <button class="button" @click="config.reject()">Cancel</button>
-      <button class="button button--resolve" @click="resolve()">Ok</button>
+      <button class="button" @click="config.reject()">Huỷ</button>
+      <button class="button button--resolve" @click="resolve()">Đồng ý</button>
     </div>
   </modal-inner>
 </template>

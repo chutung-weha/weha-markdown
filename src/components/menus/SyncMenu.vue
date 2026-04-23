@@ -1,95 +1,95 @@
 <template>
   <div class="side-bar__panel side-bar__panel--menu">
     <div class="side-bar__info" v-if="isCurrentTemp">
-      <p>{{currentFileName}} can't be synced as it's a temporary file.</p>
+      <p>{{currentFileName}} không thể đồng bộ vì đây là file tạm.</p>
     </div>
     <div v-else>
       <div class="side-bar__info" v-if="syncLocations.length">
-        <p>{{currentFileName}} is already synchronized.</p>
+        <p>{{currentFileName}} đã được đồng bộ.</p>
         <menu-entry @click.native="requestSync">
           <icon-sync slot="icon"></icon-sync>
-          <div>Synchronize now</div>
-          <span>Download / upload file changes.</span>
+          <div>Đồng bộ ngay</div>
+          <span>Tải lên / tải xuống thay đổi của file.</span>
         </menu-entry>
         <menu-entry @click.native="manageSync">
           <icon-view-list slot="icon"></icon-view-list>
-          <div><div class="menu-entry__label menu-entry__label--count">{{locationCount}}</div> File synchronization</div>
-          <span>Manage synchronized locations for {{currentFileName}}.</span>
+          <div><div class="menu-entry__label menu-entry__label--count">{{locationCount}}</div> Đồng bộ file</div>
+          <span>Quản lý các vị trí đồng bộ cho {{currentFileName}}.</span>
         </menu-entry>
       </div>
       <div class="side-bar__info" v-else-if="noToken">
-        <p>You have to link an account to start syncing files.</p>
+        <p>Bạn cần liên kết một tài khoản để bắt đầu đồng bộ file.</p>
       </div>
       <hr>
       <div v-for="token in dropboxTokens" :key="token.sub">
         <menu-entry @click.native="openDropbox(token)">
           <icon-provider slot="icon" provider-id="dropbox"></icon-provider>
-          <div>Open from Dropbox</div>
+          <div>Mở từ Dropbox</div>
           <span>{{token.name}}</span>
         </menu-entry>
         <menu-entry @click.native="saveDropbox(token)">
           <icon-provider slot="icon" provider-id="dropbox"></icon-provider>
-          <div>Save on Dropbox</div>
+          <div>Lưu lên Dropbox</div>
           <span>{{token.name}}</span>
         </menu-entry>
       </div>
       <div v-for="token in githubTokens" :key="token.sub">
         <menu-entry @click.native="openGithub(token)">
           <icon-provider slot="icon" provider-id="github"></icon-provider>
-          <div>Open from GitHub</div>
+          <div>Mở từ GitHub</div>
           <span>{{token.name}}</span>
         </menu-entry>
         <menu-entry @click.native="saveGithub(token)">
           <icon-provider slot="icon" provider-id="github"></icon-provider>
-          <div>Save on GitHub</div>
+          <div>Lưu lên GitHub</div>
           <span>{{token.name}}</span>
         </menu-entry>
         <menu-entry @click.native="saveGist(token)">
           <icon-provider slot="icon" provider-id="gist"></icon-provider>
-          <div>Save on Gist</div>
+          <div>Lưu lên Gist</div>
           <span>{{token.name}}</span>
         </menu-entry>
       </div>
       <div v-for="token in gitlabTokens" :key="token.sub">
         <menu-entry @click.native="openGitlab(token)">
           <icon-provider slot="icon" provider-id="gitlab"></icon-provider>
-          <div>Open from GitLab</div>
+          <div>Mở từ GitLab</div>
           <span>{{token.name}}</span>
         </menu-entry>
         <menu-entry @click.native="saveGitlab(token)">
           <icon-provider slot="icon" provider-id="gitlab"></icon-provider>
-          <div>Save on GitLab</div>
+          <div>Lưu lên GitLab</div>
           <span>{{token.name}}</span>
         </menu-entry>
       </div>
       <div v-for="token in googleDriveTokens" :key="token.sub">
         <menu-entry @click.native="openGoogleDrive(token)">
           <icon-provider slot="icon" provider-id="googleDrive"></icon-provider>
-          <div>Open from Google Drive</div>
+          <div>Mở từ Google Drive</div>
           <span>{{token.name}}</span>
         </menu-entry>
         <menu-entry @click.native="saveGoogleDrive(token)">
           <icon-provider slot="icon" provider-id="googleDrive"></icon-provider>
-          <div>Save on Google Drive</div>
+          <div>Lưu lên Google Drive</div>
           <span>{{token.name}}</span>
         </menu-entry>
       </div>
       <hr>
       <menu-entry @click.native="addDropboxAccount">
         <icon-provider slot="icon" provider-id="dropbox"></icon-provider>
-        <span>Add Dropbox account</span>
+        <span>Thêm tài khoản Dropbox</span>
       </menu-entry>
       <menu-entry @click.native="addGithubAccount">
         <icon-provider slot="icon" provider-id="github"></icon-provider>
-        <span>Add GitHub account</span>
+        <span>Thêm tài khoản GitHub</span>
       </menu-entry>
       <menu-entry @click.native="addGitlabAccount">
         <icon-provider slot="icon" provider-id="gitlab"></icon-provider>
-        <span>Add GitLab account</span>
+        <span>Thêm tài khoản GitLab</span>
       </menu-entry>
       <menu-entry @click.native="addGoogleDriveAccount">
         <icon-provider slot="icon" provider-id="googleDrive"></icon-provider>
-        <span>Add Google Drive account</span>
+        <span>Thêm tài khoản Google Drive</span>
       </menu-entry>
     </div>
   </div>

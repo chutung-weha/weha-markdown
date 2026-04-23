@@ -85,7 +85,7 @@ export default new Provider({
         try {
           content = await this.downloadContent(token, syncLocation);
         } catch (e) {
-          store.dispatch('notification/error', `Could not open file ${path}.`);
+          store.dispatch('notification/error', `Không thể mở file ${path}.`);
           return;
         }
 
@@ -112,7 +112,7 @@ export default new Provider({
           ...syncLocation,
           fileId: item.id,
         });
-        store.dispatch('notification/info', `${store.getters['file/current'].name} was imported from Dropbox.`);
+        store.dispatch('notification/info', `${store.getters['file/current'].name} đã được nhập từ Dropbox.`);
       }
     });
   },

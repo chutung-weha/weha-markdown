@@ -10,7 +10,7 @@ import store from './store';
 import localDbSvc from './services/localDbSvc';
 
 if (!indexedDB) {
-  throw new Error('Your browser is not supported. Please upgrade to the latest version.');
+  throw new Error('Trình duyệt của bạn không được hỗ trợ. Vui lòng cập nhật lên phiên bản mới nhất.');
 }
 
 OfflinePluginRuntime.install({
@@ -29,7 +29,7 @@ OfflinePluginRuntime.install({
 });
 
 if (localStorage.updated) {
-  store.dispatch('notification/info', 'StackEdit has just updated itself!');
+  store.dispatch('notification/info', 'Weha Markdown vừa được cập nhật!');
   setTimeout(() => localStorage.removeItem('updated'), 2000);
 }
 
@@ -39,7 +39,7 @@ if (!localStorage.installPrompted) {
     promptEvent.preventDefault();
 
     try {
-      await store.dispatch('notification/confirm', 'Add StackEdit to your home screen?');
+      await store.dispatch('notification/confirm', 'Thêm Weha Markdown vào màn hình chính?');
       promptEvent.prompt();
       await promptEvent.userChoice;
     } catch (err) {

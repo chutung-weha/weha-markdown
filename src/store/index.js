@@ -170,9 +170,9 @@ const store = new Vuex.Store({
       if (state.offline !== value) {
         commit('setOffline', value);
         if (state.offline) {
-          return Promise.reject(new Error('You are offline.'));
+          return Promise.reject(new Error('Bạn đang ngoại tuyến.'));
         }
-        dispatch('notification/info', 'You are back online!');
+        dispatch('notification/info', 'Bạn đã kết nối lại!');
       }
       return Promise.resolve();
     },

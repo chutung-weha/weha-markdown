@@ -38,7 +38,7 @@ export default {
 
     // Check the returned sub consistency
     if (sub && `${body.ID}` !== sub) {
-      throw new Error('WordPress account ID not expected.');
+      throw new Error('ID tài khoản WordPress không đúng như mong đợi.');
     }
     // Build token object including scopes and sub
     const token = {

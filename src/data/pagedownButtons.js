@@ -1,52 +1,52 @@
 export default [{
 }, {
   method: 'bold',
-  title: 'Bold',
+  title: 'Đậm',
   icon: 'format-bold',
 }, {
   method: 'italic',
-  title: 'Italic',
+  title: 'Nghiêng',
   icon: 'format-italic',
 }, {
   method: 'heading',
-  title: 'Heading',
+  title: 'Tiêu đề',
   icon: 'format-size',
 }, {
   method: 'strikethrough',
-  title: 'Strikethrough',
+  title: 'Gạch ngang',
   icon: 'format-strikethrough',
 }, {
 }, {
   method: 'ulist',
-  title: 'Unordered list',
+  title: 'Danh sách không thứ tự',
   icon: 'format-list-bulleted',
 }, {
   method: 'olist',
-  title: 'Ordered list',
+  title: 'Danh sách có thứ tự',
   icon: 'format-list-numbers',
 }, {
   method: 'clist',
-  title: 'Check list',
+  title: 'Danh sách kiểm tra',
   icon: 'format-list-checks',
 }, {
 }, {
   method: 'quote',
-  title: 'Blockquote',
+  title: 'Trích dẫn',
   icon: 'format-quote-close',
 }, {
   method: 'code',
-  title: 'Code',
+  title: 'Mã',
   icon: 'code-tags',
 }, {
   method: 'table',
-  title: 'Table',
+  title: 'Bảng',
   icon: 'table',
 }, {
   method: 'link',
-  title: 'Link',
+  title: 'Liên kết',
   icon: 'link-variant',
 }, {
   method: 'image',
-  title: 'Image',
+  title: 'Hình ảnh',
   icon: 'file-image',
 }];

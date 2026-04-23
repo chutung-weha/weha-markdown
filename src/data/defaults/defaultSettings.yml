@@ -1,23 +1,23 @@
-# light or dark
+# light hoặc dark
 colorTheme: light
-# Adjust font size in editor and preview
+# Điều chỉnh cỡ chữ trong trình soạn thảo và xem trước
 fontSizeFactor: 1
-# Adjust maximum text width in editor and preview
+# Điều chỉnh độ rộng văn bản tối đa trong trình soạn thảo và xem trước
 maxWidthFactor: 1
-# Auto-sync frequency (in ms). Minimum is 60000.
+# Tần suất tự đồng bộ (mili-giây). Tối thiểu 60000.
 autoSyncEvery: 90000
 
-# Editor settings
+# Thiết lập trình soạn thảo
 editor:
-  # Automatic list numbering
+  # Tự đánh số danh sách
   listAutoNumber: true
-  # Display images in the editor
+  # Hiển thị hình ảnh trong trình soạn thảo
   inlineImages: true
-  # Use monospaced font only
+  # Chỉ dùng font đơn cách
   monospacedFontOnly: false
 
-# Keyboard shortcuts
-# See https://craig.is/killing/mice
+# Phím tắt
+# Xem https://craig.is/killing/mice
 shortcuts:
   mod+s: sync
   mod+f: find
@@ -47,25 +47,25 @@ shortcuts:
     - '<== '
     - '⇐ '
 
-# Options passed to wkhtmltopdf
-# See https://wkhtmltopdf.org/usage/wkhtmltopdf.txt
+# Tuỳ chọn truyền cho wkhtmltopdf
+# Xem https://wkhtmltopdf.org/usage/wkhtmltopdf.txt
 wkhtmltopdf:
   marginTop: 25
   marginRight: 25
   marginBottom: 25
   marginLeft: 25
-  # A3, A4, Legal or Letter
+  # A3, A4, Legal hoặc Letter
   pageSize: A4
 
-# Options passed to pandoc
-# See https://pandoc.org/MANUAL.html
+# Tuỳ chọn truyền cho pandoc
+# Xem https://pandoc.org/MANUAL.html
 pandoc:
   highlightStyle: kate
   toc: true
   tocDepth: 3
 
-# HTML to Markdown converter options
-# See https://github.com/domchristie/turndown
+# Tuỳ chọn chuyển HTML sang Markdown
+# Xem https://github.com/domchristie/turndown
 turndown:
   headingStyle: atx
   hr: ----------
@@ -77,20 +77,20 @@ turndown:
   linkStyle: inlined
   linkReferenceStyle: full
 
-# GitHub/GitLab commit messages
+# Nội dung commit mặc định cho GitHub/GitLab
 git:
-  createFileMessage: '{{path}} created from https://stackedit.io/'
-  updateFileMessage: '{{path}} updated from https://stackedit.io/'
-  deleteFileMessage: '{{path}} deleted from https://stackedit.io/'
+  createFileMessage: 'Tạo {{path}} từ Weha Markdown'
+  updateFileMessage: 'Cập nhật {{path}} từ Weha Markdown'
+  deleteFileMessage: 'Xoá {{path}} từ Weha Markdown'
 
-# Default content for new files
+# Nội dung mặc định cho file mới
 newFileContent: |
 
 
 
-  > Written with [StackEdit](https://stackedit.io/).
+  > Viết bằng Weha Markdown.
 
-# Default properties for new files
+# Thuộc tính mặc định cho file mới
 newFileProperties: |
 #  extensions:
 #    preset: gfm

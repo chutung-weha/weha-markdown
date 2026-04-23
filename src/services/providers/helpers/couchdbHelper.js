@@ -144,7 +144,7 @@ export default {
   async removeDocument(token, documentId, rev) {
     if (!documentId) {
       // Prevent from deleting the whole database
-      throw new Error('Missing document ID');
+      throw new Error('Thiếu ID tài liệu');
     }
 
     return request(token, {

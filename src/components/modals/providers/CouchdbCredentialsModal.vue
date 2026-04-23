@@ -1,20 +1,20 @@
 <template>
-  <modal-inner aria-label="Insert image">
+  <modal-inner aria-label="Thông tin đăng nhập CouchDB">
     <div class="modal__content">
       <div class="modal__image">
         <icon-provider provider-id="couchdb"></icon-provider>
       </div>
-      <p>Please provide your credentials to login to <b>CouchDB</b>.</p>
-      <form-entry label="Name" error="name">
+      <p>Vui lòng cung cấp thông tin đăng nhập của bạn để vào <b>CouchDB</b>.</p>
+      <form-entry label="Tên" error="name">
         <input slot="field" class="textfield" type="text" v-model.trim="name" @keydown.enter="resolve()">
       </form-entry>
-      <form-entry label="Password" error="password">
+      <form-entry label="Mật khẩu" error="password">
         <input slot="field" class="textfield" type="password" v-model.trim="password" @keydown.enter="resolve()">
       </form-entry>
     </div>
     <div class="modal__button-bar">
-      <button class="button" @click="config.reject()">Cancel</button>
-      <button class="button button--resolve" @click="resolve()">Ok</button>
+      <button class="button" @click="config.reject()">Huỷ</button>
+      <button class="button button--resolve" @click="resolve()">Đồng ý</button>
     </div>
   </modal-inner>
 </template>

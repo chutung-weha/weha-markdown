@@ -1,30 +1,30 @@
 <template>
-  <modal-inner aria-label="GitLab account">
+  <modal-inner aria-label="Tài khoản GitLab">
     <div class="modal__content">
       <div class="modal__image">
         <icon-provider provider-id="gitlab"></icon-provider>
       </div>
-      <p>Link your <b>GitLab</b> account to <b>StackEdit</b>.</p>
-      <form-entry label="GitLab URL" error="serverUrl">
+      <p>Liên kết tài khoản <b>GitLab</b> của bạn với <b>Weha Markdown</b>.</p>
+      <form-entry label="URL GitLab" error="serverUrl">
         <input v-if="config.forceServerUrl" slot="field" class="textfield" type="text" disabled="disabled" v-model="config.forceServerUrl">
         <input v-else slot="field" class="textfield" type="text" v-model.trim="serverUrl" @keydown.enter="resolve()">
         <div class="form-entry__info">
-          <b>Example:</b> https://gitlab.example.com/
+          <b>Ví dụ:</b> https://gitlab.example.com/
         </div>
       </form-entry>
       <form-entry label="Application ID" error="applicationId">
         <input slot="field" class="textfield" type="text" v-model.trim="applicationId" @keydown.enter="resolve()">
         <div class="form-entry__info">
-          You have to configure an OAuth2 Application with redirect URL <b>{{redirectUrl}}</b>
+          Bạn cần cấu hình một OAuth2 Application với redirect URL <b>{{redirectUrl}}</b>
         </div>
         <div class="form-entry__actions">
-          <a href="https://docs.gitlab.com/ee/integration/oauth_provider.html" target="_blank">More info</a>
+          <a href="https://docs.gitlab.com/ee/integration/oauth_provider.html" target="_blank">Thông tin thêm</a>
         </div>
       </form-entry>
     </div>
     <div class="modal__button-bar">
-      <button class="button" @click="config.reject()">Cancel</button>
-      <button class="button button--resolve" @click="resolve()">Ok</button>
+      <button class="button" @click="config.reject()">Huỷ</button>
+      <button class="button button--resolve" @click="resolve()">Đồng ý</button>
     </div>
   </modal-inner>
 </template>

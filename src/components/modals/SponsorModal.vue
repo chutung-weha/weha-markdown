@@ -1,7 +1,7 @@
 <template>
-  <modal-inner class="modal__inner-1--sponsor" aria-label="Sponsor">
+  <modal-inner class="modal__inner-1--sponsor" aria-label="Tài trợ">
     <div class="modal__content">
-      <p>Please choose a <b>PayPal</b> option:</p>
+      <p>Vui lòng chọn một tuỳ chọn <b>PayPal</b>:</p>
       <a class="paypal-option button flex flex--row flex--center" v-for="button in buttons" :key="button.id" :href="button.link">
         <div class="flex flex--column">
           <div>{{button.price}}<div class="paypal-option__offer" v-if="button.offer">{{button.offer}}</div></div>
@@ -10,7 +10,7 @@
       </a>
     </div>
     <div class="modal__button-bar">
-      <button class="button" @click="config.reject()">Cancel</button>
+      <button class="button" @click="config.reject()">Huỷ</button>
     </div>
   </modal-inner>
 </template>
@@ -44,10 +44,10 @@ export default {
 
     return {
       buttons: sponsorToken ? [
-        makeButton('QD7SFZS79D2AL', '$5', '3 months sponsorship'),
-        makeButton('WG64NCFL9TQZJ', '$15', '1 year sponsorship', '-25%'),
-        makeButton('G2E7MN873EQ3U', '$25', '2 years sponsorship', '-37%'),
-        makeButton('JQJT7ARKYC7FC', '$50', '5 years sponsorship', '-50%'),
+        makeButton('QD7SFZS79D2AL', '$5', 'Tài trợ 3 tháng'),
+        makeButton('WG64NCFL9TQZJ', '$15', 'Tài trợ 1 năm', '-25%'),
+        makeButton('G2E7MN873EQ3U', '$25', 'Tài trợ 2 năm', '-37%'),
+        makeButton('JQJT7ARKYC7FC', '$50', 'Tài trợ 5 năm', '-50%'),
       ] : [],
     };
   },

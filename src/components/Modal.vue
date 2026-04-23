@@ -1,11 +1,7 @@
 <template>
   <div class="modal" v-if="config" @keydown.esc.stop="onEscape" @keydown.tab="onTab" @focusin="onFocusInOut" @focusout="onFocusInOut">
-    <div class="modal__sponsor-banner" v-if="!isSponsor">
-      StackEdit is <a class="not-tabbable" target="_blank" href="https://github.com/benweet/stackedit/">open source</a>, please consider
-      <a class="not-tabbable" href="javascript:void(0)" @click="sponsor">sponsoring</a> for just $5.
-    </div>
     <component v-if="currentModalComponent" :is="currentModalComponent"></component>
-    <modal-inner v-else aria-label="Dialog">
+    <modal-inner v-else aria-label="Hộp thoại">
       <div class="modal__content" v-html="simpleModal.contentHtml(config)"></div>
       <div class="modal__button-bar">
         <button class="button" v-if="simpleModal.rejectText" @click="config.reject()">{{simpleModal.rejectText}}</button>

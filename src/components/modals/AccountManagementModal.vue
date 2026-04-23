@@ -1,11 +1,11 @@
 <template>
-  <modal-inner class="modal__inner-1--account-management" aria-label="Manage external accounts">
+  <modal-inner class="modal__inner-1--account-management" aria-label="Quản lý tài khoản ngoài">
     <div class="modal__content">
       <div class="modal__image">
         <icon-key></icon-key>
       </div>
-      <p v-if="entries.length">StackEdit has access to the following external accounts:</p>
-      <p v-else>StackEdit has no access to any external account yet.</p>
+      <p v-if="entries.length">Weha Markdown đang có quyền truy cập các tài khoản ngoài sau:</p>
+      <p v-else>Weha Markdown chưa có quyền truy cập tới tài khoản ngoài nào.</p>
       <div>
         <div class="account-entry flex flex--column" v-for="entry in entries" :key="entry.token.sub">
           <div class="account-entry__header flex flex--row flex--align-center">
@@ -16,14 +16,14 @@
               {{entry.name}}
             </div>
             <div class="account-entry__buttons flex flex--row flex--center">
-              <button class="account-entry__button button" @click="remove(entry)" v-title="'Remove access'">
+              <button class="account-entry__button button" @click="remove(entry)" v-title="'Gỡ quyền truy cập'">
                 <icon-delete></icon-delete>
               </button>
             </div>
           </div>
           <div class="account-entry__row">
             <span class="account-entry__field" v-if="entry.userId">
-              <b>User ID:</b>
+              <b>ID người dùng:</b>
               {{entry.userId}}
             </span>
             <span class="account-entry__field" v-if="entry.url">
@@ -31,7 +31,7 @@
               {{entry.url}}
             </span>
             <span class="account-entry__field" v-if="entry.scopes">
-              <b>Scopes:</b>
+              <b>Phạm vi:</b>
               {{entry.scopes.join(', ')}}
             </span>
           </div>
@@ -39,39 +39,39 @@
       </div>
       <menu-entry @click.native="addBloggerAccount">
         <icon-provider slot="icon" provider-id="blogger"></icon-provider>
-        <span>Add Blogger account</span>
+        <span>Thêm tài khoản Blogger</span>
       </menu-entry>
       <menu-entry @click.native="addDropboxAccount">
         <icon-provider slot="icon" provider-id="dropbox"></icon-provider>
-        <span>Add Dropbox account</span>
+        <span>Thêm tài khoản Dropbox</span>
       </menu-entry>
       <menu-entry @click.native="addGithubAccount">
         <icon-provider slot="icon" provider-id="github"></icon-provider>
-        <span>Add GitHub account</span>
+        <span>Thêm tài khoản GitHub</span>
       </menu-entry>
       <menu-entry @click.native="addGitlabAccount">
         <icon-provider slot="icon" provider-id="gitlab"></icon-provider>
-        <span>Add GitLab account</span>
+        <span>Thêm tài khoản GitLab</span>
       </menu-entry>
       <menu-entry @click.native="addGoogleDriveAccount">
         <icon-provider slot="icon" provider-id="googleDrive"></icon-provider>
-        <span>Add Google Drive account</span>
+        <span>Thêm tài khoản Google Drive</span>
       </menu-entry>
       <menu-entry @click.native="addGooglePhotosAccount">
         <icon-provider slot="icon" provider-id="googlePhotos"></icon-provider>
-        <span>Add Google Photos account</span>
+        <span>Thêm tài khoản Google Photos</span>
       </menu-entry>
       <menu-entry @click.native="addWordpressAccount">
         <icon-provider slot="icon" provider-id="wordpress"></icon-provider>
-        <span>Add WordPress account</span>
+        <span>Thêm tài khoản WordPress</span>
       </menu-entry>
       <menu-entry @click.native="addZendeskAccount">
         <icon-provider slot="icon" provider-id="zendesk"></icon-provider>
-        <span>Add Zendesk account</span>
+        <span>Thêm tài khoản Zendesk</span>
       </menu-entry>
     </div>
     <div class="modal__button-bar">
-      <button class="button button--resolve" @click="config.resolve()">Close</button>
+      <button class="button button--resolve" @click="config.resolve()">Đóng</button>
     </div>
   </modal-inner>
 </template>

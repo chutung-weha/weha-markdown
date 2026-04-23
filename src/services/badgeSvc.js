@@ -8,8 +8,8 @@ const showInfo = () => {
     .filter(badge => badge.isEarned && !lastEarnedFeatureIds.has(badge.featureId));
   if (earnedBadges.length) {
     store.dispatch('notification/badge', earnedBadges.length > 1
-      ? `You've earned ${earnedBadges.length} badges: ${earnedBadges.map(badge => `"${badge.name}"`).join(', ')}.`
-      : `You've earned 1 badge: "${earnedBadges[0].name}".`);
+      ? `Bạn đã nhận được ${earnedBadges.length} huy hiệu: ${earnedBadges.map(badge => `"${badge.name}"`).join(', ')}.`
+      : `Bạn đã nhận được 1 huy hiệu: "${earnedBadges[0].name}".`);
   }
   lastEarnedFeatureIds = null;
 };

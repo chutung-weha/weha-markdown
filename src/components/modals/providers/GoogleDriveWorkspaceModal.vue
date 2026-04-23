@@ -1,23 +1,23 @@
 <template>
-  <modal-inner aria-label="Add Google Drive workspace">
+  <modal-inner aria-label="Thêm workspace Google Drive">
     <div class="modal__content">
       <div class="modal__image">
         <icon-provider provider-id="googleDrive"></icon-provider>
       </div>
-      <p>Create a workspace synced with a <b>Google Drive</b> folder.</p>
-      <form-entry label="Folder ID" info="optional">
+      <p>Tạo workspace được đồng bộ với một thư mục <b>Google Drive</b>.</p>
+      <form-entry label="ID thư mục" info="tuỳ chọn">
         <input slot="field" class="textfield" type="text" v-model.trim="folderId" @keydown.enter="resolve()">
         <div class="form-entry__info">
-          If not supplied, a new workspace folder will be created in your Drive root folder.
+          Nếu không điền, một thư mục workspace mới sẽ được tạo trong thư mục gốc Drive của bạn.
         </div>
         <div class="form-entry__actions">
-          <a href="javascript:void(0)" @click="openFolder">Choose folder</a>
+          <a href="javascript:void(0)" @click="openFolder">Chọn thư mục</a>
         </div>
       </form-entry>
     </div>
     <div class="modal__button-bar">
-      <button class="button" @click="config.reject()">Cancel</button>
-      <button class="button button--resolve" @click="resolve()">Ok</button>
+      <button class="button" @click="config.reject()">Huỷ</button>
+      <button class="button button--resolve" @click="resolve()">Đồng ý</button>
     </div>
   </modal-inner>
 </template>

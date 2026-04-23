@@ -220,7 +220,7 @@ const createSyncLocation = (syncLocation) => {
 
       store.commit('syncedContent/patchItem', newSyncedContent);
       workspaceSvc.addSyncLocation(updatedSyncLocation);
-      store.dispatch('notification/info', `A new synchronized location was added to "${currentFile.name}".`);
+      store.dispatch('notification/info', `Một vị trí đồng bộ mới đã được thêm cho "${currentFile.name}".`);
     },
   );
 };
@@ -628,7 +628,7 @@ const syncWorkspace = async (skipContents = false) => {
         syncSub: syncToken.sub,
       });
     } else if (localSettings.syncSub !== syncToken.sub) {
-      throw new Error('Synchronization failed due to token inconsistency.');
+      throw new Error('Đồng bộ thất bại do token không nhất quán.');
     }
 
     const changes = await workspaceProvider.getChanges();
@@ -819,7 +819,7 @@ const requestSync = (addTriggerSyncBadge = false) => {
         clearInterval(intervalId);
         if (!isSyncPossible()) {
           // Cancel sync
-          throw new Error('Sync not possible.');
+          throw new Error('Không thể đồng bộ.');
         }
 
         // Determine if we have to clean files

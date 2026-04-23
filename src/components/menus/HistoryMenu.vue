@@ -8,18 +8,18 @@
           </option>
         </select>
       </p>
-      <p v-if="!historyContext">Synchronize <b>{{currentFileName}}</b> to enable revision history or <a href="javascript:void(0)" @click="signin">sign in with Google</a> to synchronize your main workspace.</p>
-      <p v-else-if="loading">Loading history…</p>
-      <p v-else-if="!revisionsWithSpacer.length"><b>{{currentFileName}}</b> has no history.</p>
+      <p v-if="!historyContext">Đồng bộ <b>{{currentFileName}}</b> để bật lịch sử phiên bản hoặc <a href="javascript:void(0)" @click="signin">đăng nhập bằng Google</a> để đồng bộ workspace chính của bạn.</p>
+      <p v-else-if="loading">Đang tải lịch sử…</p>
+      <p v-else-if="!revisionsWithSpacer.length"><b>{{currentFileName}}</b> chưa có lịch sử.</p>
       <div class="menu-entry menu-entry--info flex flex--row flex--align-center" v-else>
         <div class="menu-entry__icon menu-entry__icon--image">
           <icon-provider :provider-id="syncLocation.providerId"></icon-provider>
         </div>
         <span v-if="syncLocation.url">
-          The following revisions are stored in <a :href="syncLocation.url" target="_blank">{{ syncLocationProviderName }}</a>.
+          Các phiên bản dưới đây được lưu tại <a :href="syncLocation.url" target="_blank">{{ syncLocationProviderName }}</a>.
         </span>
         <span v-else>
-          The following revisions are stored in {{ syncLocationProviderName }}.
+          Các phiên bản dưới đây được lưu tại {{ syncLocationProviderName }}.
         </span>
       </div>
     </div>
@@ -39,7 +39,7 @@
     </div>
     <div class="history__spacer history__spacer--last" v-if="revisions.length"></div>
     <div class="flex flex--row flex--end" v-if="showMoreButton">
-      <button class="history__button button" @click="showMore">More</button>
+      <button class="history__button button" @click="showMore">Xem thêm</button>
     </div>
   </div>
 </template>

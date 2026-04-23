@@ -75,7 +75,7 @@ export default {
 
     // Check the returned sub consistency
     if (sub && uniqueSub !== sub) {
-      throw new Error('GitLab account ID not expected.');
+      throw new Error('ID tài khoản GitLab không đúng như mong đợi.');
     }
 
     // Build token object including scopes and sub

@@ -93,7 +93,7 @@ export default {
     return new Promise((resolve, reject) => {
       const timeoutId = setTimeout(() => {
         worker.terminate();
-        reject(new Error('Template generation timeout.'));
+        reject(new Error('Hết thời gian tạo template.'));
       }, 10000);
       worker.addEventListener('message', (e) => {
         clearTimeout(timeoutId);

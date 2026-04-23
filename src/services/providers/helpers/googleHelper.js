@@ -139,11 +139,11 @@ export default {
 
     // Check the returned client ID consistency
     if (body.aud !== clientId) {
-      throw new Error('Client ID inconsistent.');
+      throw new Error('Client ID không nhất quán.');
     }
     // Check the returned sub consistency
     if (sub && `${body.sub}` !== sub) {
-      throw new Error('Google account ID not expected.');
+      throw new Error('ID tài khoản Google không đúng như mong đợi.');
     }
 
     // Build token object including scopes and sub

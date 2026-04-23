@@ -1,143 +1,143 @@
-# Welcome to StackEdit!
+# Chào mừng bạn đến với Weha Markdown!
 
-Hi! I'm your first Markdown file in **StackEdit**. If you want to learn about StackEdit, you can read me. If you want to play with Markdown, you can edit me. Once you have finished with me, you can create new files by opening the **file explorer** on the left corner of the navigation bar.
-
-
-# Files
-
-StackEdit stores your files in your browser, which means all your files are automatically saved locally and are accessible **offline!**
-
-## Create files and folders
-
-The file explorer is accessible using the button in left corner of the navigation bar. You can create a new file by clicking the **New file** button in the file explorer. You can also create folders by clicking the **New folder** button.
-
-## Switch to another file
-
-All your files and folders are presented as a tree in the file explorer. You can switch from one to another by clicking a file in the tree.
-
-## Rename a file
-
-You can rename the current file by clicking the file name in the navigation bar or by clicking the **Rename** button in the file explorer.
-
-## Delete a file
-
-You can delete the current file by clicking the **Remove** button in the file explorer. The file will be moved into the **Trash** folder and automatically deleted after 7 days of inactivity.
-
-## Export a file
-
-You can export the current file by clicking **Export to disk** in the menu. You can choose to export the file as plain Markdown, as HTML using a Handlebars template or as a PDF.
+Xin chào! Tôi là file Markdown đầu tiên của bạn trong **Weha Markdown**. Nếu bạn muốn tìm hiểu về Weha Markdown, hãy đọc tôi. Nếu bạn muốn thử nghiệm với Markdown, hãy chỉnh sửa tôi. Khi đã xong, bạn có thể tạo file mới bằng cách mở **trình quản lý file** ở góc trái thanh điều hướng.
 
 
-# Synchronization
+# Quản lý file
 
-Synchronization is one of the biggest features of StackEdit. It enables you to synchronize any file in your workspace with other files stored in your **Google Drive**, your **Dropbox** and your **GitHub** accounts. This allows you to keep writing on other devices, collaborate with people you share the file with, integrate easily into your workflow... The synchronization mechanism takes place every minute in the background, downloading, merging, and uploading file modifications.
+Weha Markdown lưu các file của bạn ngay trong trình duyệt, nghĩa là mọi file đều được tự động lưu cục bộ và có thể truy cập **ngoại tuyến!**
 
-There are two types of synchronization and they can complement each other:
+## Tạo file và thư mục
 
-- The workspace synchronization will sync all your files, folders and settings automatically. This will allow you to fetch your workspace on any other device.
-	> To start syncing your workspace, just sign in with Google in the menu.
+Bạn có thể mở trình quản lý file bằng nút ở góc trái thanh điều hướng. Nhấn **File mới** để tạo file và **Thư mục mới** để tạo thư mục.
 
-- The file synchronization will keep one file of the workspace synced with one or multiple files in **Google Drive**, **Dropbox** or **GitHub**.
-	> Before starting to sync files, you must link an account in the **Synchronize** sub-menu.
+## Chuyển sang file khác
 
-## Open a file
+Tất cả file và thư mục được hiển thị dạng cây trong trình quản lý. Bạn chỉ cần nhấn vào tên file để chuyển qua file đó.
 
-You can open a file from **Google Drive**, **Dropbox** or **GitHub** by opening the **Synchronize** sub-menu and clicking **Open from**. Once opened in the workspace, any modification in the file will be automatically synced.
+## Đổi tên file
 
-## Save a file
+Bạn có thể đổi tên file hiện tại bằng cách nhấn vào tên file trên thanh điều hướng, hoặc nhấn nút **Đổi tên** trong trình quản lý file.
 
-You can save any file of the workspace to **Google Drive**, **Dropbox** or **GitHub** by opening the **Synchronize** sub-menu and clicking **Save on**. Even if a file in the workspace is already synced, you can save it to another location. StackEdit can sync one file with multiple locations and accounts.
+## Xoá file
 
-## Synchronize a file
+Nhấn nút **Xoá** trong trình quản lý file để xoá file hiện tại. File sẽ được chuyển vào thư mục **Thùng rác** và tự động bị xoá vĩnh viễn sau 7 ngày không hoạt động.
 
-Once your file is linked to a synchronized location, StackEdit will periodically synchronize it by downloading/uploading any modification. A merge will be performed if necessary and conflicts will be resolved.
+## Xuất file
 
-If you just have modified your file and you want to force syncing, click the **Synchronize now** button in the navigation bar.
-
-> **Note:** The **Synchronize now** button is disabled if you have no file to synchronize.
-
-## Manage file synchronization
-
-Since one file can be synced with multiple locations, you can list and manage synchronized locations by clicking **File synchronization** in the **Synchronize** sub-menu. This allows you to list and remove synchronized locations that are linked to your file.
+Chọn **Xuất ra đĩa** trong menu để xuất file hiện tại. Bạn có thể xuất dưới dạng Markdown thuần, HTML (qua template Handlebars) hoặc PDF.
 
 
-# Publication
+# Đồng bộ hoá
 
-Publishing in StackEdit makes it simple for you to publish online your files. Once you're happy with a file, you can publish it to different hosting platforms like **Blogger**, **Dropbox**, **Gist**, **GitHub**, **Google Drive**, **WordPress** and **Zendesk**. With [Handlebars templates](http://handlebarsjs.com/), you have full control over what you export.
+Đồng bộ hoá là một trong những tính năng nổi bật của Weha Markdown. Tính năng này cho phép bạn đồng bộ file trong không gian làm việc với các file lưu trên **Google Drive**, **Dropbox** và **GitHub**. Nhờ đó bạn có thể tiếp tục viết trên thiết bị khác, cộng tác với người dùng khác, hoặc tích hợp dễ dàng vào quy trình làm việc… Quá trình đồng bộ chạy ngầm mỗi phút — tải xuống, hợp nhất và tải lên những thay đổi.
 
-> Before starting to publish, you must link an account in the **Publish** sub-menu.
+Có hai kiểu đồng bộ và chúng có thể bổ sung cho nhau:
 
-## Publish a File
+- Đồng bộ không gian làm việc: tự động đồng bộ tất cả file, thư mục và thiết lập. Nhờ đó bạn có thể lấy lại toàn bộ workspace trên thiết bị khác.
+	> Để bắt đầu, hãy đăng nhập bằng Google từ menu.
 
-You can publish your file by opening the **Publish** sub-menu and by clicking **Publish to**. For some locations, you can choose between the following formats:
+- Đồng bộ file: giữ một file trong workspace đồng bộ với một hoặc nhiều file trên **Google Drive**, **Dropbox** hoặc **GitHub**.
+	> Trước khi đồng bộ, bạn cần liên kết tài khoản trong menu con **Đồng bộ**.
 
-- Markdown: publish the Markdown text on a website that can interpret it (**GitHub** for instance),
-- HTML: publish the file converted to HTML via a Handlebars template (on a blog for example).
+## Mở file
 
-## Update a publication
+Bạn có thể mở file từ **Google Drive**, **Dropbox** hoặc **GitHub** bằng cách vào menu con **Đồng bộ** và nhấn **Mở từ**. Sau khi mở, mọi chỉnh sửa sẽ được đồng bộ tự động.
 
-After publishing, StackEdit keeps your file linked to that publication which makes it easy for you to re-publish it. Once you have modified your file and you want to update your publication, click on the **Publish now** button in the navigation bar.
+## Lưu file
 
-> **Note:** The **Publish now** button is disabled if your file has not been published yet.
+Bạn có thể lưu bất kỳ file nào trong workspace lên **Google Drive**, **Dropbox** hoặc **GitHub** qua menu con **Đồng bộ**, nhấn **Lưu vào**. Dù file đã được đồng bộ, bạn vẫn có thể lưu nó tới nơi khác. Weha Markdown cho phép đồng bộ một file với nhiều vị trí và nhiều tài khoản.
 
-## Manage file publication
+## Đồng bộ một file
 
-Since one file can be published to multiple locations, you can list and manage publish locations by clicking **File publication** in the **Publish** sub-menu. This allows you to list and remove publication locations that are linked to your file.
+Khi file đã được liên kết với một vị trí đồng bộ, Weha Markdown sẽ định kỳ đồng bộ bằng cách tải xuống/tải lên mọi thay đổi. Hệ thống sẽ thực hiện hợp nhất và xử lý xung đột nếu cần.
+
+Nếu bạn vừa chỉnh sửa file và muốn đồng bộ ngay, hãy nhấn nút **Đồng bộ ngay** trên thanh điều hướng.
+
+> **Lưu ý:** Nút **Đồng bộ ngay** sẽ bị vô hiệu hoá nếu không có file nào cần đồng bộ.
+
+## Quản lý đồng bộ file
+
+Vì một file có thể đồng bộ với nhiều vị trí, bạn có thể xem và quản lý các vị trí đồng bộ bằng cách chọn **Đồng bộ file** trong menu con **Đồng bộ**. Tại đây bạn có thể liệt kê và gỡ các vị trí đồng bộ đã liên kết với file.
 
 
-# Markdown extensions
+# Xuất bản
 
-StackEdit extends the standard Markdown syntax by adding extra **Markdown extensions**, providing you with some nice features.
+Tính năng xuất bản của Weha Markdown giúp bạn chia sẻ file lên mạng một cách dễ dàng. Khi đã hài lòng với file, bạn có thể xuất bản lên nhiều nền tảng như **Blogger**, **Dropbox**, **Gist**, **GitHub**, **Google Drive**, **WordPress** và **Zendesk**. Với [template Handlebars](http://handlebarsjs.com/), bạn có toàn quyền kiểm soát nội dung được xuất.
 
-> **ProTip:** You can disable any **Markdown extension** in the **File properties** dialog.
+> Trước khi xuất bản, bạn cần liên kết tài khoản trong menu con **Xuất bản**.
+
+## Xuất bản một file
+
+Mở menu con **Xuất bản** và nhấn **Xuất bản tới**. Với một số vị trí, bạn có thể chọn định dạng:
+
+- Markdown: xuất bản Markdown gốc lên trang hỗ trợ Markdown (ví dụ **GitHub**),
+- HTML: xuất bản file đã được chuyển thành HTML qua template Handlebars (ví dụ blog).
+
+## Cập nhật bản đã xuất
+
+Sau khi xuất bản, Weha Markdown sẽ ghi nhớ liên kết để bạn tái xuất bản dễ dàng. Khi đã chỉnh sửa file và muốn cập nhật, hãy nhấn nút **Xuất bản ngay** trên thanh điều hướng.
+
+> **Lưu ý:** Nút **Xuất bản ngay** sẽ bị vô hiệu hoá nếu file chưa từng được xuất bản.
+
+## Quản lý xuất bản file
+
+Vì một file có thể được xuất bản tới nhiều nơi, bạn có thể xem và quản lý các vị trí bằng cách chọn **Xuất bản file** trong menu con **Xuất bản**. Bạn có thể liệt kê và gỡ các vị trí đã liên kết với file.
+
+
+# Tiện ích mở rộng Markdown
+
+Weha Markdown mở rộng cú pháp Markdown chuẩn bằng các **tiện ích mở rộng Markdown**, mang lại nhiều tính năng hữu ích.
+
+> **Mẹo:** Bạn có thể tắt bất kỳ **tiện ích mở rộng Markdown** nào trong hộp thoại **Thuộc tính file**.
 
 
 ## SmartyPants
 
-SmartyPants converts ASCII punctuation characters into "smart" typographic punctuation HTML entities. For example:
+SmartyPants chuyển các ký tự dấu câu ASCII thành ký tự typographic "thông minh". Ví dụ:
 
 |                |ASCII                          |HTML                         |
 |----------------|-------------------------------|-----------------------------|
-|Single backticks|`'Isn't this fun?'`            |'Isn't this fun?'            |
-|Quotes          |`"Isn't this fun?"`            |"Isn't this fun?"            |
-|Dashes          |`-- is en-dash, --- is em-dash`|-- is en-dash, --- is em-dash|
+|Dấu nháy đơn    |`'Isn't this fun?'`            |'Isn't this fun?'            |
+|Dấu ngoặc kép   |`"Isn't this fun?"`            |"Isn't this fun?"            |
+|Gạch ngang      |`-- is en-dash, --- is em-dash`|-- is en-dash, --- is em-dash|
 
 
 ## KaTeX
 
-You can render LaTeX mathematical expressions using [KaTeX](https://khan.github.io/KaTeX/):
+Bạn có thể hiển thị biểu thức toán LaTeX bằng [KaTeX](https://khan.github.io/KaTeX/):
 
-The *Gamma function* satisfying $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$ is via the Euler integral
+Hàm *Gamma* thoả mãn $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$ qua tích phân Euler
 
 $$
 \Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.
 $$
 
-> You can find more information about **LaTeX** mathematical expressions [here](http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference).
+> Bạn có thể tìm hiểu thêm về biểu thức toán **LaTeX** [tại đây](http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference).
 
 
-## UML diagrams
+## Sơ đồ UML
 
-You can render UML diagrams using [Mermaid](https://mermaidjs.github.io/). For example, this will produce a sequence diagram:
+Bạn có thể vẽ sơ đồ UML bằng [Mermaid](https://mermaidjs.github.io/). Ví dụ, đoạn sau sẽ tạo một sơ đồ tuần tự:
 
 ```mermaid
 sequenceDiagram
-Alice ->> Bob: Hello Bob, how are you?
-Bob-->>John: How about you John?
-Bob--x Alice: I am good thanks!
-Bob-x John: I am good thanks!
-Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text does<br/>not fit on a row.
+Alice ->> Bob: Chào Bob, bạn khoẻ không?
+Bob-->>John: Còn bạn thì sao John?
+Bob--x Alice: Mình khoẻ, cảm ơn!
+Bob-x John: Mình khoẻ, cảm ơn!
+Note right of John: Bob suy nghĩ rất<br/>lâu, đến mức văn bản<br/>không vừa một dòng.
 
-Bob-->Alice: Checking with John...
-Alice->John: Yes... John, how are you?
+Bob-->Alice: Đang hỏi John...
+Alice->John: John, bạn khoẻ chứ?
 ```
 
-And this will produce a flow chart:
+Và đoạn này sẽ tạo một flow chart:
 
 ```mermaid
 graph LR
-A[Square Rect] -- Link text --> B((Circle))
-A --> C(Round Rect)
-B --> D{Rhombus}
+A[Hình chữ nhật] -- Mô tả liên kết --> B((Hình tròn))
+A --> C(Chữ nhật bo tròn)
+B --> D{Hình thoi}
 C --> D
 ```

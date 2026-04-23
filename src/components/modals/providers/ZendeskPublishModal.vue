@@ -1,43 +1,43 @@
 <template>
-  <modal-inner aria-label="Publish to Zendesk">
+  <modal-inner aria-label="Xuất bản lên Zendesk">
     <div class="modal__content">
       <div class="modal__image">
         <icon-provider provider-id="zendesk"></icon-provider>
       </div>
-      <p>Publish <b>{{currentFileName}}</b> to your <b>Zendesk Help Center</b>.</p>
-      <form-entry label="Section ID" error="sectionId">
+      <p>Xuất bản <b>{{currentFileName}}</b> lên <b>Zendesk Help Center</b> của bạn.</p>
+      <form-entry label="ID phần (section)" error="sectionId">
         <input slot="field" class="textfield" type="text" v-model.trim="sectionId" @keydown.enter="resolve()">
         <div class="form-entry__info">
           https://example.zendesk.com/hc/en-us/sections/<b>21857469</b>-Section-name
         </div>
       </form-entry>
-      <form-entry label="Existing article ID" info="optional">
+      <form-entry label="ID bài viết hiện có" info="tuỳ chọn">
         <input slot="field" class="textfield" type="text" v-model.trim="articleId" @keydown.enter="resolve()">
       </form-entry>
-      <form-entry label="Locale" info="optional">
+      <form-entry label="Ngôn ngữ" info="tuỳ chọn">
         <input slot="field" class="textfield" type="text" v-model.trim="locale" @keydown.enter="resolve()">
         <div class="form-entry__info">
-          <b>Default:</b> en-us
+          <b>Mặc định:</b> en-us
         </div>
       </form-entry>
-      <form-entry label="Template">
+      <form-entry label="Mẫu">
         <select slot="field" class="textfield" v-model="selectedTemplate" @keydown.enter="resolve()">
           <option v-for="(template, id) in allTemplatesById" :key="id" :value="id">
             {{ template.name }}
           </option>
         </select>
         <div class="form-entry__actions">
-          <a href="javascript:void(0)" @click="configureTemplates">Configure templates</a>
+          <a href="javascript:void(0)" @click="configureTemplates">Cấu hình mẫu</a>
         </div>
       </form-entry>
       <div class="modal__info">
-        <b>ProTip:</b> You can provide values for <code>title</code>, <code>tags</code> and
-        <code>status</code> in the <a href="javascript:void(0)" @click="openFileProperties">file properties</a>.
+        <b>Mẹo:</b> Bạn có thể cung cấp giá trị cho <code>title</code>, <code>tags</code> và
+        <code>status</code> trong <a href="javascript:void(0)" @click="openFileProperties">thuộc tính file</a>.
       </div>
     </div>
     <div class="modal__button-bar">
-      <button class="button" @click="config.reject()">Cancel</button>
-      <button class="button button--resolve" @click="resolve()">Ok</button>
+      <button class="button" @click="config.reject()">Huỷ</button>
+      <button class="button button--resolve" @click="resolve()">Đồng ý</button>
     </div>
   </modal-inner>
 </template>

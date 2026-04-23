@@ -83,7 +83,7 @@ export default {
 
     // Check the returned sub consistency
     if (sub && `${body.account_id}` !== sub) {
-      throw new Error('Dropbox account ID not expected.');
+      throw new Error('ID tài khoản Dropbox không đúng như mong đợi.');
     }
 
     // Build token object including scopes and sub

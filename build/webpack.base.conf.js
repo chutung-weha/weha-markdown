@@ -28,7 +28,8 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
-      '@': resolve('src')
+      '@': resolve('src'),
+      mermaid: 'mermaid/dist/mermaid.core.js'
     }
   },
   module: {
@@ -66,7 +67,41 @@ module.exports = {
         include: [
           resolve('src'),
           resolve('test'),
-          resolve('node_modules/mermaid')
+          resolve('node_modules/mermaid'),
+          resolve('node_modules/d3-scale-chromatic'),
+          resolve('node_modules/d3-interpolate'),
+          resolve('node_modules/d3-color'),
+          resolve('node_modules/d3-scale'),
+          resolve('node_modules/d3-array'),
+          resolve('node_modules/d3-format'),
+          resolve('node_modules/d3-time'),
+          resolve('node_modules/d3-time-format'),
+          resolve('node_modules/d3-selection'),
+          resolve('node_modules/d3-axis'),
+          resolve('node_modules/d3-brush'),
+          resolve('node_modules/d3-chord'),
+          resolve('node_modules/d3-contour'),
+          resolve('node_modules/d3-delaunay'),
+          resolve('node_modules/d3-dispatch'),
+          resolve('node_modules/d3-drag'),
+          resolve('node_modules/d3-dsv'),
+          resolve('node_modules/d3-ease'),
+          resolve('node_modules/d3-fetch'),
+          resolve('node_modules/d3-force'),
+          resolve('node_modules/d3-geo'),
+          resolve('node_modules/d3-hierarchy'),
+          resolve('node_modules/d3-path'),
+          resolve('node_modules/d3-polygon'),
+          resolve('node_modules/d3-quadtree'),
+          resolve('node_modules/d3-random'),
+          resolve('node_modules/d3-shape'),
+          resolve('node_modules/d3-timer'),
+          resolve('node_modules/d3-transition'),
+          resolve('node_modules/d3-zoom'),
+          resolve('node_modules/d3'),
+          resolve('node_modules/internmap'),
+          resolve('node_modules/delaunator'),
+          resolve('node_modules/robust-predicates')
         ],
         exclude: [
           resolve('node_modules/mermaid/src/diagrams/class/parser'),
@@ -77,7 +112,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        test: /\.(png|jpe?g|gif|svg|webp)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           limit: 10000,

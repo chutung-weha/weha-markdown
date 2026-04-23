@@ -1,13 +1,13 @@
 <template>
   <div class="side-bar flex flex--column">
     <div class="side-title flex flex--row">
-      <button v-if="panel !== 'menu'" class="side-title__button button" @click="setPanel('menu')" v-title="'Main menu'">
+      <button v-if="panel !== 'menu'" class="side-title__button button" @click="setPanel('menu')" v-title="'Menu chính'">
         <icon-dots-horizontal></icon-dots-horizontal>
       </button>
       <div class="side-title__title">
         {{panelName}}
       </div>
-      <button class="side-title__button button" @click="toggleSideBar(false)" v-title="'Close side bar'">
+      <button class="side-title__button button" @click="toggleSideBar(false)" v-title="'Đóng thanh bên'">
         <icon-close></icon-close>
       </button>
     </div>
@@ -47,14 +47,14 @@ import store from '../store';
 
 const panelNames = {
   menu: 'Menu',
-  workspaces: 'Workspaces',
-  help: 'Markdown cheat sheet',
-  toc: 'Table of contents',
-  sync: 'Synchronize',
-  publish: 'Publish',
-  history: 'File history',
-  importExport: 'Import/export',
-  workspaceBackups: 'Workspace backups',
+  workspaces: 'Workspace',
+  help: 'Bảng tra Markdown',
+  toc: 'Mục lục',
+  sync: 'Đồng bộ',
+  publish: 'Xuất bản',
+  history: 'Lịch sử file',
+  importExport: 'Nhập/xuất',
+  workspaceBackups: 'Sao lưu workspace',
 };
 
 export default {

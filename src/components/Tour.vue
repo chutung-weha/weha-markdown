@@ -2,47 +2,46 @@
   <div class="tour" @keydown.esc.stop="skip">
     <div class="tour-step" :class="'tour-step--' + step" :style="stepStyle">
       <div class="tour-step__inner" v-if="step === 'welcome'">
-        <h2>Welcome back!</h2>
-        <p>The new <b>StackEdit 5</b> is here!</p>
-        <p>Please click <b>Next</b> to take a quick tour.</p>
+        <h2>Chào mừng trở lại!</h2>
+        <p><b>Weha Markdown</b> đã sẵn sàng!</p>
+        <p>Hãy nhấn <b>Tiếp</b> để bắt đầu hướng dẫn nhanh.</p>
         <div class="tour-step__button-bar">
-          <button class="button" @click="finish">Skip</button>
-          <button class="button button--resolve" @click="next">Next</button>
+          <button class="button" @click="finish">Bỏ qua</button>
+          <button class="button button--resolve" @click="next">Tiếp</button>
         </div>
       </div>
       <div class="tour-step__inner" v-else-if="step === 'editor'">
-        <h2>Your Markdown editor</h2>
-        <p>StackEdit converts your Markdown to HTML in real-time.</p>
-        <p>Click <icon-side-preview></icon-side-preview> to toggle the side preview.</p>
+        <h2>Trình soạn thảo Markdown</h2>
+        <p>Weha Markdown chuyển Markdown sang HTML ngay tức thì.</p>
+        <p>Nhấn <icon-side-preview></icon-side-preview> để bật/tắt khung xem trước.</p>
         <div class="tour-step__button-bar">
-          <button class="button" @click="finish">Skip</button>
-          <button class="button button--resolve" @click="next">Next</button>
+          <button class="button" @click="finish">Bỏ qua</button>
+          <button class="button button--resolve" @click="next">Tiếp</button>
         </div>
       </div>
       <div class="tour-step__inner" v-else-if="step === 'explorer'">
-        <h2>File explorer</h2>
-        <p>StackEdit can manage multiple files and folders in a workspace.</p>
-        <p>Click <icon-folder></icon-folder> to open the file explorer.</p>
+        <h2>Trình quản lý file</h2>
+        <p>Weha Markdown có thể quản lý nhiều file và thư mục trong một workspace.</p>
+        <p>Nhấn <icon-folder></icon-folder> để mở trình quản lý file.</p>
         <div class="tour-step__button-bar">
-          <button class="button" @click="finish">Skip</button>
-          <button class="button button--resolve" @click="next">Next</button>
+          <button class="button" @click="finish">Bỏ qua</button>
+          <button class="button button--resolve" @click="next">Tiếp</button>
         </div>
       </div>
       <div class="tour-step__inner" v-else-if="step === 'menu'">
-        <h2>Do a lot more!</h2>
-        <p>StackEdit can also synchronize and publish your files, manage collaborative workspaces...</p>
-        <p>Click <icon-provider provider-id="stackedit"></icon-provider> to explore the menu.</p>
+        <h2>Còn nhiều hơn thế!</h2>
+        <p>Weha Markdown còn có thể đồng bộ và xuất bản file của bạn, quản lý workspace cộng tác…</p>
+        <p>Nhấn <icon-provider provider-id="stackedit"></icon-provider> để khám phá menu.</p>
         <div class="tour-step__button-bar">
-          <button class="button" @click="finish">Skip</button>
-          <button class="button button--resolve" @click="next">Next</button>
+          <button class="button" @click="finish">Bỏ qua</button>
+          <button class="button button--resolve" @click="next">Tiếp</button>
         </div>
       </div>
       <div class="tour-step__inner" v-else-if="step === 'end'">
-        <h2>Enjoy!</h2>
-        <p>If you like StackEdit, please rate 5 stars on the <a target="_blank" href="https://chrome.google.com/webstore/detail/iiooodelglhkcpgbajoejffhijaclcdg/reviews">Chrome Web Store</a>.</p>
-        <p>You can also star the project on <a target="_blank" href="https://github.com/benweet/stackedit">GitHub</a> and join the <a target="_blank" href="https://community.stackedit.io/">community</a>.</p>
+        <h2>Chúc bạn làm việc vui vẻ!</h2>
+        <p>Cảm ơn bạn đã sử dụng Weha Markdown.</p>
         <div class="tour-step__button-bar">
-          <button class="button button--resolve" @click="finish">Ok</button>
+          <button class="button button--resolve" @click="finish">Đồng ý</button>
         </div>
       </div>
     </div>

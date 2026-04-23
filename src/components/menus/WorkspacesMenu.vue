@@ -2,32 +2,32 @@
   <div class="side-bar__panel side-bar__panel--menu">
     <menu-entry @click.native="manageWorkspaces">
       <icon-database slot="icon"></icon-database>
-      <div><div class="menu-entry__label menu-entry__label--count">{{workspaceCount}}</div> Manage workspaces</div>
-      <span>List, rename, remove workspaces</span>
+      <div><div class="menu-entry__label menu-entry__label--count">{{workspaceCount}}</div> Quản lý workspace</div>
+      <span>Liệt kê, đổi tên, xoá workspace</span>
     </menu-entry>
     <hr>
     <div class="workspace" v-for="(workspace, id) in workspacesById" :key="id">
       <menu-entry :href="workspace.url" target="_blank">
         <icon-provider slot="icon" :provider-id="workspace.providerId"></icon-provider>
-        <div class="workspace__name"><div class="menu-entry__label" v-if="currentWorkspace === workspace">current</div>{{workspace.name}}</div>
+        <div class="workspace__name"><div class="menu-entry__label" v-if="currentWorkspace === workspace">hiện tại</div>{{workspace.name}}</div>
       </menu-entry>
     </div>
     <hr>
     <menu-entry @click.native="addCouchdbWorkspace">
       <icon-provider slot="icon" provider-id="couchdbWorkspace"></icon-provider>
-      <span>Add a <b>CouchDB</b> workspace</span>
+      <span>Thêm workspace <b>CouchDB</b></span>
     </menu-entry>
     <menu-entry @click.native="addGithubWorkspace">
       <icon-provider slot="icon" provider-id="githubWorkspace"></icon-provider>
-      <span>Add a <b>GitHub</b> workspace</span>
+      <span>Thêm workspace <b>GitHub</b></span>
     </menu-entry>
     <menu-entry @click.native="addGitlabWorkspace">
       <icon-provider slot="icon" provider-id="gitlabWorkspace"></icon-provider>
-      <span>Add a <b>GitLab</b> workspace</span>
+      <span>Thêm workspace <b>GitLab</b></span>
     </menu-entry>
     <menu-entry @click.native="addGoogleDriveWorkspace">
       <icon-provider slot="icon" provider-id="googleDriveWorkspace"></icon-provider>
-      <span>Add a <b>Google Drive</b> workspace</span>
+      <span>Thêm workspace <b>Google Drive</b></span>
     </menu-entry>
   </div>
 </template>

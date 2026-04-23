@@ -1,29 +1,29 @@
 <template>
-  <modal-inner aria-label="Link Zendesk account">
+  <modal-inner aria-label="Liên kết tài khoản Zendesk">
     <div class="modal__content">
       <div class="modal__image">
         <icon-provider provider-id="zendesk"></icon-provider>
       </div>
-      <p>Link your <b>Zendesk</b> account to <b>StackEdit</b>.</p>
-      <form-entry label="Site URL" error="siteUrl">
+      <p>Liên kết tài khoản <b>Zendesk</b> của bạn với <b>Weha Markdown</b>.</p>
+      <form-entry label="URL trang web" error="siteUrl">
         <input slot="field" class="textfield" type="text" v-model.trim="siteUrl" @keydown.enter="resolve()">
         <div class="form-entry__info">
-          <b>Example:</b> https://example.zendesk.com/
+          <b>Ví dụ:</b> https://example.zendesk.com/
         </div>
       </form-entry>
       <form-entry label="Client Unique Identifier" error="clientId">
         <input slot="field" class="textfield" type="text" v-model.trim="clientId" @keydown.enter="resolve()">
         <div class="form-entry__info">
-          You have to configure an OAuth Client with redirect URL <b>{{redirectUrl}}</b>
+          Bạn cần cấu hình một OAuth Client với redirect URL <b>{{redirectUrl}}</b>
         </div>
         <div class="form-entry__actions">
-          <a href="https://support.zendesk.com/hc/en-us/articles/203663836" target="_blank">More info</a>
+          <a href="https://support.zendesk.com/hc/en-us/articles/203663836" target="_blank">Thông tin thêm</a>
         </div>
       </form-entry>
     </div>
     <div class="modal__button-bar">
-      <button class="button" @click="config.reject()">Cancel</button>
-      <button class="button button--resolve" @click="resolve()">Ok</button>
+      <button class="button" @click="config.reject()">Huỷ</button>
+      <button class="button button--resolve" @click="resolve()">Đồng ý</button>
     </div>
   </modal-inner>
 </template>

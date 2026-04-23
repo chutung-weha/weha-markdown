@@ -1,32 +1,32 @@
 <template>
-  <modal-inner aria-label="Synchronize with GitHub">
+  <modal-inner aria-label="Đồng bộ với GitHub">
     <div class="modal__content">
       <div class="modal__image">
         <icon-provider provider-id="github"></icon-provider>
       </div>
-      <p>Create a workspace synced with a <b>GitHub</b> repository folder.</p>
-      <form-entry label="Repository URL" error="repoUrl">
+      <p>Tạo workspace được đồng bộ với một thư mục repository <b>GitHub</b>.</p>
+      <form-entry label="URL repository" error="repoUrl">
         <input slot="field" class="textfield" type="text" v-model.trim="repoUrl" @keydown.enter="resolve()">
         <div class="form-entry__info">
-          <b>Example:</b> https://github.com/owner/my-repo
+          <b>Ví dụ:</b> https://github.com/owner/my-repo
         </div>
       </form-entry>
-      <form-entry label="Folder path" info="optional">
+      <form-entry label="Đường dẫn thư mục" info="tuỳ chọn">
         <input slot="field" class="textfield" type="text" v-model.trim="path" @keydown.enter="resolve()">
         <div class="form-entry__info">
-          If not supplied, the root folder will be used.
+          Nếu không điền, thư mục gốc sẽ được sử dụng.
         </div>
       </form-entry>
-      <form-entry label="Branch" info="optional">
+      <form-entry label="Nhánh" info="tuỳ chọn">
         <input slot="field" class="textfield" type="text" v-model.trim="branch" @keydown.enter="resolve()">
         <div class="form-entry__info">
-          If not supplied, the <code>master</code> branch will be used.
+          Nếu không điền, nhánh <code>master</code> sẽ được sử dụng.
         </div>
       </form-entry>
     </div>
     <div class="modal__button-bar">
-      <button class="button" @click="config.reject()">Cancel</button>
-      <button class="button button--resolve" @click="resolve()">Ok</button>
+      <button class="button" @click="config.reject()">Huỷ</button>
+      <button class="button button--resolve" @click="resolve()">Đồng ý</button>
     </div>
   </modal-inner>
 </template>

@@ -14,7 +14,7 @@ export default {
     },
     name() {
       const userInfo = store.state.userInfo.itemsById[this.sanitizedUserId];
-      return userInfo ? userInfo.name : 'Someone';
+      return userInfo ? userInfo.name : 'Ai đó';
     },
   },
   watch: {

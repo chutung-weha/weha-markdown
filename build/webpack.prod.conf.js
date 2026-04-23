@@ -102,11 +102,11 @@ var webpackConfig = merge(baseWebpackConfig, {
     ]),
     new FaviconsWebpackPlugin({
       logo: resolve('src/assets/favicon.png'),
-      title: 'StackEdit',
+      title: 'Weha Markdown',
     }),
     new WebpackPwaManifest({
-      name: 'StackEdit',
-      description: 'Full-featured, open-source Markdown editor',
+      name: 'Weha Markdown',
+      description: 'Trình soạn thảo Markdown mã nguồn mở, đầy đủ tính năng.',
       display: 'standalone',
       orientation: 'any',
       start_url: 'app',

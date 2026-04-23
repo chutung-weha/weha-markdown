@@ -80,7 +80,7 @@ export default {
         type: 'unauthorizedName',
         item,
       });
-      throw new Error('Unauthorized name.');
+      throw new Error('Tên không hợp lệ.');
     }
 
     // Show warning dialogs

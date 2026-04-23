@@ -76,7 +76,7 @@ export default new Provider({
       try {
         content = await this.downloadContent(token, syncLocation);
       } catch (e) {
-        store.dispatch('notification/error', `Could not open file ${syncLocation.path}.`);
+        store.dispatch('notification/error', `Không thể mở file ${syncLocation.path}.`);
         return;
       }
 
@@ -103,7 +103,7 @@ export default new Provider({
         ...syncLocation,
         fileId: item.id,
       });
-      store.dispatch('notification/info', `${store.getters['file/current'].name} was imported from GitHub.`);
+      store.dispatch('notification/info', `${store.getters['file/current'].name} đã được nhập từ GitHub.`);
     }
   },
   makeLocation(token, owner, repo, branch, path) {

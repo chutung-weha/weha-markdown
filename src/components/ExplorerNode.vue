@@ -169,21 +169,21 @@ export default {
             top: evt.clientY,
           },
           items: [{
-            name: 'New file',
+            name: 'File mới',
             disabled: !this.node.isFolder || this.node.isTrash,
             perform: () => explorerSvc.newItem(false),
           }, {
-            name: 'New folder',
+            name: 'Thư mục mới',
             disabled: !this.node.isFolder || this.node.isTrash || this.node.isTemp,
             perform: () => explorerSvc.newItem(true),
           }, {
             type: 'separator',
           }, {
-            name: 'Rename',
+            name: 'Đổi tên',
             disabled: this.node.isTrash || this.node.isTemp,
             perform: () => this.setEditingId(this.node.item.id),
           }, {
-            name: 'Delete',
+            name: 'Xoá',
             perform: () => explorerSvc.deleteItem(),
           }],
         });

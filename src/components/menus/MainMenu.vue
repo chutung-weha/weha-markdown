@@ -5,117 +5,117 @@
         <div class="menu-entry__icon menu-entry__icon--image">
           <user-image :user-id="userId"></user-image>
         </div>
-        <span>Signed in as <b>{{loginToken.name}}</b>.</span>
+        <span>Đăng nhập với tên <b>{{loginToken.name}}</b>.</span>
       </div>
       <div class="menu-entry menu-entry--info flex flex--row flex--align-center" v-if="syncToken">
         <div class="menu-entry__icon menu-entry__icon--image">
           <icon-provider :provider-id="currentWorkspace.providerId"></icon-provider>
         </div>
         <span v-if="currentWorkspace.providerId === 'googleDriveAppData'">
-          <b>{{currentWorkspace.name}}</b> synced with your Google Drive app data folder.
+          <b>{{currentWorkspace.name}}</b> đã đồng bộ với thư mục app data của Google Drive.
         </span>
         <span v-else-if="currentWorkspace.providerId === 'googleDriveWorkspace'">
-          <b>{{currentWorkspace.name}}</b> synced with a <a :href="workspaceLocationUrl" target="_blank">Google Drive folder</a>.
+          <b>{{currentWorkspace.name}}</b> đã đồng bộ với <a :href="workspaceLocationUrl" target="_blank">thư mục Google Drive</a>.
         </span>
         <span v-else-if="currentWorkspace.providerId === 'couchdbWorkspace'">
-          <b>{{currentWorkspace.name}}</b> synced with a <a :href="workspaceLocationUrl" target="_blank">CouchDB database</a>.
+          <b>{{currentWorkspace.name}}</b> đã đồng bộ với <a :href="workspaceLocationUrl" target="_blank">CSDL CouchDB</a>.
         </span>
         <span v-else-if="currentWorkspace.providerId === 'githubWorkspace'">
-          <b>{{currentWorkspace.name}}</b> synced with a <a :href="workspaceLocationUrl" target="_blank">GitHub repo</a>.
+          <b>{{currentWorkspace.name}}</b> đã đồng bộ với <a :href="workspaceLocationUrl" target="_blank">repo GitHub</a>.
         </span>
         <span v-else-if="currentWorkspace.providerId === 'gitlabWorkspace'">
-          <b>{{currentWorkspace.name}}</b> synced with a <a :href="workspaceLocationUrl" target="_blank">GitLab project</a>.
+          <b>{{currentWorkspace.name}}</b> đã đồng bộ với <a :href="workspaceLocationUrl" target="_blank">project GitLab</a>.
         </span>
       </div>
       <div class="menu-entry menu-entry--info flex flex--row flex--align-center" v-else>
         <div class="menu-entry__icon menu-entry__icon--disabled">
           <icon-sync-off></icon-sync-off>
         </div>
-        <span><b>{{currentWorkspace.name}}</b> not synced.</span>
+        <span><b>{{currentWorkspace.name}}</b> chưa đồng bộ.</span>
       </div>
     </div>
     <menu-entry v-if="!loginToken" @click.native="signin">
       <icon-login slot="icon"></icon-login>
-      <div>Sign in with Google</div>
-      <span>Sync your main workspace and unlock functionalities.</span>
+      <div>Đăng nhập với Google</div>
+      <span>Đồng bộ workspace chính và mở khoá tính năng.</span>
     </menu-entry>
     <menu-entry @click.native="setPanel('workspaces')">
       <icon-database slot="icon"></icon-database>
-      <div><div class="menu-entry__label menu-entry__label--count" v-if="workspaceCount">{{workspaceCount}}</div> Workspaces</div>
-      <span>Switch to another workspace.</span>
+      <div><div class="menu-entry__label menu-entry__label--count" v-if="workspaceCount">{{workspaceCount}}</div> Workspace</div>
+      <span>Chuyển qua workspace khác.</span>
     </menu-entry>
     <hr>
     <menu-entry @click.native="setPanel('sync')">
       <icon-sync slot="icon"></icon-sync>
-      <div><div class="menu-entry__label menu-entry__label--count" v-if="syncLocationCount">{{syncLocationCount}}</div> Synchronize</div>
-      <span>Sync your files in the Cloud.</span>
+      <div><div class="menu-entry__label menu-entry__label--count" v-if="syncLocationCount">{{syncLocationCount}}</div> Đồng bộ</div>
+      <span>Đồng bộ file của bạn lên đám mây.</span>
     </menu-entry>
     <menu-entry @click.native="setPanel('publish')">
       <icon-upload slot="icon"></icon-upload>
-      <div><div class="menu-entry__label menu-entry__label--count" v-if="publishLocationCount">{{publishLocationCount}}</div>Publish</div>
-      <span>Export your files to the web.</span>
+      <div><div class="menu-entry__label menu-entry__label--count" v-if="publishLocationCount">{{publishLocationCount}}</div>Xuất bản</div>
+      <span>Đăng file lên web.</span>
     </menu-entry>
     <menu-entry @click.native="setPanel('history')">
       <icon-history slot="icon"></icon-history>
-      <div>History</div>
-      <span>Track and restore file revisions.</span>
+      <div>Lịch sử</div>
+      <span>Xem và khôi phục các phiên bản file.</span>
     </menu-entry>
     <menu-entry @click.native="fileProperties">
       <icon-view-list slot="icon"></icon-view-list>
-      <div>File properties</div>
-      <span>Add metadata and configure extensions.</span>
+      <div>Thuộc tính file</div>
+      <span>Thêm metadata và cấu hình tiện ích mở rộng.</span>
     </menu-entry>
     <hr>
     <menu-entry @click.native="setPanel('toc')">
       <icon-toc slot="icon"></icon-toc>
-      Table of contents
+      Mục lục
     </menu-entry>
     <menu-entry @click.native="setPanel('help')">
       <icon-help-circle slot="icon"></icon-help-circle>
-      Markdown cheat sheet
+      Trợ giúp nhanh Markdown
     </menu-entry>
     <hr>
     <menu-entry @click.native="setPanel('importExport')">
       <icon-content-save slot="icon"></icon-content-save>
-      Import/export
+      Nhập/xuất
     </menu-entry>
     <menu-entry @click.native="print">
       <icon-printer slot="icon"></icon-printer>
-      Print
+      In
     </menu-entry>
     <hr>
     <menu-entry @click.native="badges">
       <icon-seal slot="icon"></icon-seal>
-      <div><div class="menu-entry__label menu-entry__label--count">{{badgeCount}}/{{featureCount}}</div> Badges</div>
-      <span>List application features and earned badges.</span>
+      <div><div class="menu-entry__label menu-entry__label--count">{{badgeCount}}/{{featureCount}}</div> Huy hiệu</div>
+      <span>Danh sách tính năng và huy hiệu đã đạt.</span>
     </menu-entry>
     <menu-entry @click.native="accounts">
       <icon-key slot="icon"></icon-key>
-      <div><div class="menu-entry__label menu-entry__label--count">{{accountCount}}</div> Accounts</div>
-      <span>Manage access to your external accounts.</span>
+      <div><div class="menu-entry__label menu-entry__label--count">{{accountCount}}</div> Tài khoản</div>
+      <span>Quản lý quyền truy cập tới tài khoản ngoài.</span>
     </menu-entry>
     <menu-entry @click.native="templates">
       <icon-code-braces slot="icon"></icon-code-braces>
-      <div><div class="menu-entry__label menu-entry__label--count">{{templateCount}}</div> Templates</div>
-      <span>Configure Handlebars templates for your exports.</span>
+      <div><div class="menu-entry__label menu-entry__label--count">{{templateCount}}</div> Template</div>
+      <span>Cấu hình template Handlebars khi xuất file.</span>
     </menu-entry>
     <menu-entry @click.native="settings">
       <icon-settings slot="icon"></icon-settings>
-      <div>Settings</div>
-      <span>Tweak application and keyboard shortcuts.</span>
+      <div>Thiết lập</div>
+      <span>Tinh chỉnh ứng dụng và phím tắt.</span>
     </menu-entry>
     <hr>
     <menu-entry @click.native="setPanel('workspaceBackups')">
       <icon-content-save slot="icon"></icon-content-save>
-      Workspace backups
+      Sao lưu workspace
     </menu-entry>
     <menu-entry @click.native="reset">
       <icon-logout slot="icon"></icon-logout>
-      Reset application
+      Đặt lại ứng dụng
     </menu-entry>
     <menu-entry @click.native="about">
       <icon-help-circle slot="icon"></icon-help-circle>
-      About StackEdit
+      Giới thiệu Weha Markdown
     </menu-entry>
   </div>
 </template>

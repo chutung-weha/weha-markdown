@@ -1,5 +1,5 @@
 <template>
-  <modal-inner class="modal__inner-1--templates" aria-label="Manage templates">
+  <modal-inner class="modal__inner-1--templates" aria-label="Quản lý template">
     <div class="modal__content">
       <div class="form-entry">
         <label class="form-entry__label" for="template">Template</label>
@@ -12,28 +12,28 @@
           </select>
         </div>
         <div class="form-entry__actions flex flex--row flex--end">
-          <button class="form-entry__button button" @click="create" v-title="'New template'">
+          <button class="form-entry__button button" @click="create" v-title="'Template mới'">
             <icon-file-plus></icon-file-plus>
           </button>
-          <button class="form-entry__button button" @click="copy" v-title="'Copy template'">
+          <button class="form-entry__button button" @click="copy" v-title="'Sao chép template'">
             <icon-file-multiple></icon-file-multiple>
           </button>
-          <button v-if="!isReadOnly" class="form-entry__button button" @click="isEditing = true" v-title="'Rename template'">
+          <button v-if="!isReadOnly" class="form-entry__button button" @click="isEditing = true" v-title="'Đổi tên template'">
             <icon-pen></icon-pen>
           </button>
-          <button v-if="!isReadOnly" class="form-entry__button button" @click="remove" v-title="'Remove template'">
+          <button v-if="!isReadOnly" class="form-entry__button button" @click="remove" v-title="'Gỡ template'">
             <icon-delete></icon-delete>
           </button>
         </div>
       </div>
       <div class="form-entry">
-        <label class="form-entry__label">Value</label>
+        <label class="form-entry__label">Nội dung</label>
         <div class="form-entry__field" v-for="(template, id) in templates" :key="id" v-if="id === selectedId">
           <code-editor lang="handlebars" :value="template.value" :disabled="isReadOnly" @changed="template.value = $event"></code-editor>
         </div>
       </div>
       <div v-if="!isReadOnly">
-        <a href="javascript:void(0)" v-if="!showHelpers" @click="showHelpers = true">Add helpers</a>
+        <a href="javascript:void(0)" v-if="!showHelpers" @click="showHelpers = true">Thêm helpers</a>
         <div class="form-entry" v-else>
           <br>
           <label class="form-entry__label">Helpers</label>
@@ -44,8 +44,8 @@
       </div>
     </div>
     <div class="modal__button-bar">
-      <button class="button" @click="config.reject()">Cancel</button>
-      <button class="button button--resolve" @click="resolve()">Ok</button>
+      <button class="button" @click="config.reject()">Huỷ</button>
+      <button class="button button--resolve" @click="resolve()">Đồng ý</button>
     </div>
   </modal-inner>
 </template>
@@ -122,7 +122,7 @@ export default {
   methods: {
     create() {
       const template = {
-        name: 'New template',
+        name: 'Template mới',
         value: '\n',
         helpers: '\n',
       };
@@ -133,7 +133,7 @@ export default {
     },
     copy() {
       const template = utils.deepCopy(this.templates[this.selectedId]);
-      template.name += ' copy';
+      template.name += ' bản sao';
       delete template.isAdditional;
       this.selectedId = utils.uid();
       this.templates[this.selectedId] = template;

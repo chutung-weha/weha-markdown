@@ -94,7 +94,7 @@ const publishFile = async (fileId) => {
       });
     });
     const file = store.state.file.itemsById[fileId];
-    store.dispatch('notification/info', `"${file.name}" was published to ${counter} location(s).`);
+    store.dispatch('notification/info', `"${file.name}" đã được xuất bản tới ${counter} vị trí.`);
   } finally {
     await localDbSvc.unloadContents();
   }
@@ -114,7 +114,7 @@ const requestPublish = () => {
         clearInterval(intervalId);
         if (!hasCurrentFilePublishLocations()) {
           // Cancel publish
-          throw new Error('Publish not possible.');
+          throw new Error('Không thể xuất bản.');
         }
         await publishFile(store.getters['file/current'].id);
         badgeSvc.addBadge('triggerPublish');
@@ -133,7 +133,7 @@ const createPublishLocation = (publishLocation, featureId) => {
     async () => {
       const publishLocationToStore = await publish(publishLocation);
       workspaceSvc.addPublishLocation(publishLocationToStore);
-      store.dispatch('notification/info', `A new publication location was added to "${currentFile.name}".`);
+      store.dispatch('notification/info', `Một vị trí xuất bản mới đã được thêm cho "${currentFile.name}".`);
       if (featureId) {
         badgeSvc.addBadge(featureId);
       }

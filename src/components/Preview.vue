@@ -9,7 +9,7 @@
       </div>
     </div>
     <div v-if="!styles.showEditor" class="preview__corner">
-      <button class="preview__button button" @click="toggleEditor(true)" v-title="'Edit file'">
+      <button class="preview__button button" @click="toggleEditor(true)" v-title="'Chỉnh sửa file'">
         <icon-pen></icon-pen>
       </button>
     </div>

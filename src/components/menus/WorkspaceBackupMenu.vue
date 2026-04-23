@@ -6,12 +6,12 @@
         <icon-content-save></icon-content-save>
       </div>
       <div class="flex flex--column">
-        Import workspace backup
+        Nhập bản sao lưu workspace
       </div>
     </label>
     <menu-entry @click.native="exportWorkspace">
       <icon-content-save slot="icon"></icon-content-save>
-      Export workspace backup
+      Xuất bản sao lưu workspace
     </menu-entry>
   </div>
 </template>
@@ -38,7 +38,7 @@ export default {
         reader.onload = (e) => {
           const text = e.target.result;
           if (text.match(/\uFFFD/)) {
-            store.dispatch('notification/error', 'File is not readable.');
+            store.dispatch('notification/error', 'Không thể đọc file.');
           } else {
             backupSvc.importBackup(text);
           }
@@ -56,7 +56,7 @@ export default {
         const blob = new Blob([backup], {
           type: 'text/plain;charset=utf-8',
         });
-        FileSaver.saveAs(blob, 'StackEdit workspace.json');
+        FileSaver.saveAs(blob, 'Weha Markdown workspace.json');
       });
     },
   },

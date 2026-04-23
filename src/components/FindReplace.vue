@@ -1,21 +1,21 @@
 <template>
   <div class="find-replace" @keydown.esc.stop="onEscape">
-    <button class="find-replace__close-button button not-tabbable" @click="close()" v-title="'Close'">
+    <button class="find-replace__close-button button not-tabbable" @click="close()" v-title="'Đóng'">
       <icon-close></icon-close>
     </button>
     <div class="find-replace__row">
       <input type="text" class="find-replace__text-input find-replace__text-input--find text-input" @keydown.enter="find('forward')" v-model="findText">
       <div class="find-replace__find-stats">
-        {{findPosition}} of {{findCount}}
+        {{findPosition}} / {{findCount}}
       </div>
       <div class="flex flex--row flex--space-between">
         <div class="flex flex--row">
-          <button class="find-replace__button find-replace__button--find-option button" :class="{'find-replace__button--on': findCaseSensitive}" @click="findCaseSensitive = !findCaseSensitive" title="Case sensitive">Aa</button>
-          <button class="find-replace__button find-replace__button--find-option button" :class="{'find-replace__button--on': findUseRegexp}" @click="findUseRegexp = !findUseRegexp" title="Regular expression">.<sup>⁕</sup></button>
+          <button class="find-replace__button find-replace__button--find-option button" :class="{'find-replace__button--on': findCaseSensitive}" @click="findCaseSensitive = !findCaseSensitive" title="Phân biệt chữ hoa/thường">Aa</button>
+          <button class="find-replace__button find-replace__button--find-option button" :class="{'find-replace__button--on': findUseRegexp}" @click="findUseRegexp = !findUseRegexp" title="Biểu thức chính quy">.<sup>⁕</sup></button>
         </div>
         <div class="flex flex--row">
-          <button class="find-replace__button button" @click="find('backward')">Previous</button>
-          <button class="find-replace__button button" @click="find('forward')">Next</button>
+          <button class="find-replace__button button" @click="find('backward')">Trước</button>
+          <button class="find-replace__button button" @click="find('forward')">Tiếp</button>
         </div>
       </div>
     </div>
@@ -24,8 +24,8 @@
         <input type="text" class="find-replace__text-input find-replace__text-input--replace text-input" @keydown.enter="replace" v-model="replaceText">
       </div>
       <div class="find-replace__row flex flex--row flex--end">
-        <button class="find-replace__button button" @click="replace">Replace</button>
-        <button class="find-replace__button button" @click="replaceAll">All</button>
+        <button class="find-replace__button button" @click="replace">Thay thế</button>
+        <button class="find-replace__button button" @click="replaceAll">Tất cả</button>
       </div>
     </div>
   </div>
