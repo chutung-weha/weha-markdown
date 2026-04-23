@@ -1,6 +1,7 @@
 import utils from './utils';
 import store from '../store';
 import constants from '../data/constants';
+import clientConf from '../data/clientConf';
 
 const scriptLoadingPromises = Object.create(null);
 const authorizeTimeout = 6 * 60 * 1000; // 2 minutes
@@ -10,7 +11,6 @@ let isConnectionDown = false;
 const userInactiveAfter = 3 * 60 * 1000; // 3 minutes (twice the default sync period)
 let lastActivity = 0;
 let lastFocus = 0;
-let isConfLoading = false;
 let isConfLoaded = false;
 
 function parseHeaders(xhr) {
@@ -107,15 +107,11 @@ export default {
     this.getServerConf();
   },
   async getServerConf() {
-    if (!store.state.offline && !isConfLoading && !isConfLoaded) {
-      try {
-        isConfLoading = true;
-        const res = await this.request({ url: 'conf' });
-        await store.dispatch('data/setServerConf', res.body);
-        isConfLoaded = true;
-      } finally {
-        isConfLoading = false;
-      }
+    if (!isConfLoaded) {
+      // Client IDs được inject lúc build qua webpack DefinePlugin (src/data/clientConf.js).
+      // Không fetch /conf runtime để có thể deploy static thuần không cần Express.
+      await store.dispatch('data/setServerConf', clientConf);
+      isConfLoaded = true;
     }
   },
   isWindowFocused() {

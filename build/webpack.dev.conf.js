@@ -19,7 +19,13 @@ module.exports = merge(baseWebpackConfig, {
   devtool: 'source-map',
   plugins: [
     new webpack.DefinePlugin({
-      NODE_ENV: config.dev.env.NODE_ENV
+      NODE_ENV: config.dev.env.NODE_ENV,
+      GOOGLE_CLIENT_ID: JSON.stringify(process.env.GOOGLE_CLIENT_ID || ''),
+      GOOGLE_API_KEY: JSON.stringify(process.env.GOOGLE_API_KEY || ''),
+      GITHUB_CLIENT_ID: JSON.stringify(process.env.GITHUB_CLIENT_ID || ''),
+      DROPBOX_APP_KEY: JSON.stringify(process.env.DROPBOX_APP_KEY || ''),
+      DROPBOX_APP_KEY_FULL: JSON.stringify(process.env.DROPBOX_APP_KEY_FULL || ''),
+      WORDPRESS_CLIENT_ID: JSON.stringify(process.env.WORDPRESS_CLIENT_ID || ''),
     }),
     // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
     new webpack.HotModuleReplacementPlugin(),

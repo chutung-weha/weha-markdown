@@ -35,8 +35,12 @@ var webpackConfig = merge(baseWebpackConfig, {
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
       NODE_ENV: env.NODE_ENV,
-      GOOGLE_CLIENT_ID: env.GOOGLE_CLIENT_ID,
-      GITHUB_CLIENT_ID: env.GITHUB_CLIENT_ID
+      GOOGLE_CLIENT_ID: JSON.stringify(process.env.GOOGLE_CLIENT_ID || ''),
+      GOOGLE_API_KEY: JSON.stringify(process.env.GOOGLE_API_KEY || ''),
+      GITHUB_CLIENT_ID: JSON.stringify(process.env.GITHUB_CLIENT_ID || ''),
+      DROPBOX_APP_KEY: JSON.stringify(process.env.DROPBOX_APP_KEY || ''),
+      DROPBOX_APP_KEY_FULL: JSON.stringify(process.env.DROPBOX_APP_KEY_FULL || ''),
+      WORDPRESS_CLIENT_ID: JSON.stringify(process.env.WORDPRESS_CLIENT_ID || ''),
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
