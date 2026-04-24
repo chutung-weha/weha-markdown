@@ -540,7 +540,7 @@ export default {
       result.startPageToken = newStartPageToken;
       return result;
     };
-    if (!startPageToken) {
+    const fetchFreshStartPageToken = async () => {
       const { startPageToken: freshToken } = await this.$request(refreshedToken, {
         method: 'GET',
         url: 'https://www.googleapis.com/drive/v3/changes/startPageToken',
@@ -549,9 +549,37 @@ export default {
           teamDriveId: teamDriveId || undefined,
         },
       });
+      return freshToken;
+    };
+
+    // Case 1: no token stored (fresh install / new account) → fetch a fresh one.
+    if (!startPageToken) {
+      const freshToken = await fetchFreshStartPageToken();
       return getPage(freshToken);
     }
-    return getPage(startPageToken);
+
+    // Case 2: token exists but may be stale (leftover from another workspace,
+    // different Google account, or older than Drive's change-log retention).
+    // Drive returns HTTP 400 with reason "invalid" in that case — refetch and retry once.
+    try {
+      return await getPage(startPageToken);
+    } catch (err) {
+      const { status } = err || {};
+      const body = (err && err.body) || {};
+      const error = body.error || {};
+      const [firstError] = error.errors || [];
+      const { reason } = firstError || {};
+      const isInvalidPageToken = status === 400 && (
+        reason === 'invalid'
+        || reason === 'invalidPageToken'
+        || reason === 'pageTokenExpired'
+      );
+      if (!isInvalidPageToken) throw err;
+      // Reset accumulated partial results and retry with a fresh token.
+      result.changes = [];
+      const freshToken = await fetchFreshStartPageToken();
+      return getPage(freshToken);
+    }
   },
 
   /**
