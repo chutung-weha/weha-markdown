@@ -29,7 +29,7 @@ export default {
         ) {
           this.selection = editorSvc.getTrimmedSelection();
           if (this.selection) {
-            const { text } = editorSvc.previewCtxWithDiffs;
+            const { text } = editorSvc.previewCtxWithDiffs || {};
             offset = editorSvc.getPreviewOffset(this.selection.end);
             while (offset && text[offset - 1] === '\n') {
               offset -= 1;

@@ -540,6 +540,17 @@ export default {
       result.startPageToken = newStartPageToken;
       return result;
     };
+    if (!startPageToken) {
+      const { startPageToken: freshToken } = await this.$request(refreshedToken, {
+        method: 'GET',
+        url: 'https://www.googleapis.com/drive/v3/changes/startPageToken',
+        params: {
+          supportsTeamDrives: true,
+          teamDriveId: teamDriveId || undefined,
+        },
+      });
+      return getPage(freshToken);
+    }
     return getPage(startPageToken);
   },
 
