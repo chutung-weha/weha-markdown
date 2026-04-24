@@ -22,7 +22,8 @@
     "patch": "npm version patch -m \"Tag v%s\"",
     "minor": "npm version minor -m \"Tag v%s\"",
     "major": "npm version major -m \"Tag v%s\"",
-    "chart": "mkdir -p dist && rm -rf dist/stackedit && cp -r chart dist/stackedit && sed -i.bak -e s/STACKEDIT_VERSION/$npm_package_version/g dist/stackedit/*.yaml && rm dist/stackedit/*.yaml.bak"
+    "chart": "mkdir -p dist && rm -rf dist/stackedit && cp -r chart dist/stackedit && sed -i.bak -e s/STACKEDIT_VERSION/$npm_package_version/g dist/stackedit/*.yaml && rm dist/stackedit/*.yaml.bak",
+    "postbuild": "mkdir -p dist/oauth2 && cp static/oauth2/callback.html dist/oauth2/callback.html"
   },
   "dependencies": {
     "@vue/test-utils": "^1.0.0-beta.16",
@@ -50,7 +51,7 @@
     "markdown-it-pandoc-renderer": "1.2.0",
     "markdown-it-sub": "^1.0.0",
     "markdown-it-sup": "^1.0.0",
-    "mermaid": "^8.9.2",
+    "mermaid": "^8.8.4",
     "mousetrap": "^1.6.1",
     "normalize-scss": "^7.0.1",
     "prismjs": "^1.6.0",
