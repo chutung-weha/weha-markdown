@@ -191,7 +191,7 @@ export default {
           }
 
           msgHandler = (event) => {
-            if (event.source === wnd && event.origin === constants.origin) {
+            if (event.origin === constants.origin) { // COOP fix: removed event.source === wnd check
               const data = utils.parseQueryParams(`${event.data}`.slice(1));
               if (data.error || data.state !== state) {
                 console.error(data); // eslint-disable-line no-console
