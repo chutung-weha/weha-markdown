@@ -33,14 +33,28 @@ var webpackConfig = merge(baseWebpackConfig, {
   },
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
+    // Ưu tiên process.env (override lúc build), fallback về env (prod.env.js).
+    // env.* đã ở dạng chuỗi JSON sẵn (có dấu "") từ prod.env.js.
     new webpack.DefinePlugin({
       NODE_ENV: env.NODE_ENV,
-      GOOGLE_CLIENT_ID: JSON.stringify(process.env.GOOGLE_CLIENT_ID || ''),
-      GOOGLE_API_KEY: JSON.stringify(process.env.GOOGLE_API_KEY || ''),
-      GITHUB_CLIENT_ID: JSON.stringify(process.env.GITHUB_CLIENT_ID || ''),
-      DROPBOX_APP_KEY: JSON.stringify(process.env.DROPBOX_APP_KEY || ''),
-      DROPBOX_APP_KEY_FULL: JSON.stringify(process.env.DROPBOX_APP_KEY_FULL || ''),
-      WORDPRESS_CLIENT_ID: JSON.stringify(process.env.WORDPRESS_CLIENT_ID || ''),
+      GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID
+        ? JSON.stringify(process.env.GOOGLE_CLIENT_ID)
+        : env.GOOGLE_CLIENT_ID || '""',
+      GOOGLE_API_KEY: process.env.GOOGLE_API_KEY
+        ? JSON.stringify(process.env.GOOGLE_API_KEY)
+        : env.GOOGLE_API_KEY || '""',
+      GITHUB_CLIENT_ID: process.env.GITHUB_CLIENT_ID
+        ? JSON.stringify(process.env.GITHUB_CLIENT_ID)
+        : env.GITHUB_CLIENT_ID || '""',
+      DROPBOX_APP_KEY: process.env.DROPBOX_APP_KEY
+        ? JSON.stringify(process.env.DROPBOX_APP_KEY)
+        : env.DROPBOX_APP_KEY || '""',
+      DROPBOX_APP_KEY_FULL: process.env.DROPBOX_APP_KEY_FULL
+        ? JSON.stringify(process.env.DROPBOX_APP_KEY_FULL)
+        : env.DROPBOX_APP_KEY_FULL || '""',
+      WORDPRESS_CLIENT_ID: process.env.WORDPRESS_CLIENT_ID
+        ? JSON.stringify(process.env.WORDPRESS_CLIENT_ID)
+        : env.WORDPRESS_CLIENT_ID || '""',
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
