@@ -43,11 +43,12 @@ export default new Provider({
         trashFolderId: folder.appProperties.trashFolderId,
       };
 
-      // Make sure data folder exists
+      // Make sure data folder exists (new workspaces use .wemd-data; legacy
+      // workspaces keep .stackedit-data because dataFolderId is already set)
       if (!appProperties.dataFolderId) {
         const dataFolder = await googleHelper.uploadFile({
           token,
-          name: '.stackedit-data',
+          name: '.wemd-data',
           parents: [folder.id],
           appProperties: { folderId: folder.id },
           mediaType: googleHelper.folderMimeType,
@@ -55,11 +56,11 @@ export default new Provider({
         appProperties.dataFolderId = dataFolder.id;
       }
 
-      // Make sure trash folder exists
+      // Make sure trash folder exists (new: .wemd-trash; legacy unchanged)
       if (!appProperties.trashFolderId) {
         const trashFolder = await googleHelper.uploadFile({
           token,
-          name: '.stackedit-trash',
+          name: '.wemd-trash',
           parents: [folder.id],
           appProperties: { folderId: folder.id },
           mediaType: googleHelper.folderMimeType,
@@ -111,7 +112,7 @@ export default new Provider({
     if (!folderId) {
       const folder = await googleHelper.uploadFile({
         token,
-        name: 'StackEdit workspace',
+        name: 'Wemd workspace',
         parents: [],
         mediaType: googleHelper.folderMimeType,
       });
