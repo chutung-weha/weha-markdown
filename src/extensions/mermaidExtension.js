@@ -1,6 +1,15 @@
-import 'mermaid';
+// mermaid.min.js (UMD) is consumed by webpack via the CommonJS branch
+// (`module.exports = factory()`) and therefore does NOT auto-attach
+// `window.mermaid` like a `<script>` tag would. Pull the default export
+// and expose it on window so the existing `window.mermaid.initialize/...`
+// call sites keep working.
+import mermaid from 'mermaid';
 import extensionSvc from '../services/extensionSvc';
 import utils from '../services/utils';
+
+if (typeof window !== 'undefined' && !window.mermaid) {
+  window.mermaid = mermaid;
+}
 
 const config = {
   logLevel: 5,
