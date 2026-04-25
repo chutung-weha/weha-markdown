@@ -29,7 +29,13 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       '@': resolve('src'),
-      mermaid: 'mermaid/dist/mermaid.core.js'
+      // mermaid 8.14+ ships `dist/mermaid.core.js` as a Node-only bundle
+      // (moment-mini left as `require()` external). When fed into a browser
+      // webpack build it crashes with "n[t] is not a function" because the
+      // inner runtime can't resolve module 2515 (moment-mini) at runtime.
+      // Use the UMD browser bundle `mermaid.min.js` instead — it inlines
+      // moment-mini and works standalone in the browser.
+      mermaid: 'mermaid/dist/mermaid.min.js'
     }
   },
   module: {
