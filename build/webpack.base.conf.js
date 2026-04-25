@@ -73,7 +73,10 @@ module.exports = {
         include: [
           resolve('src'),
           resolve('test'),
-          resolve('node_modules/mermaid'),
+          // node_modules/mermaid is intentionally NOT included: we alias to
+          // `mermaid.min.js` (a pre-built UMD bundle), so running babel over
+          // 1.1 MB of minified output is both wasteful and prone to hanging
+          // the build for several minutes on small VPS.
           resolve('node_modules/d3-scale-chromatic'),
           resolve('node_modules/d3-interpolate'),
           resolve('node_modules/d3-color'),
