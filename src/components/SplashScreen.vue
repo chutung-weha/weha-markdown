@@ -48,10 +48,12 @@
   .splash-screen__brand {
     gap: 16px;
   }
+
   .splash-screen__logo {
     width: 80px;
     height: 80px;
   }
+
   .splash-screen__title {
     font-size: 2rem;
   }
